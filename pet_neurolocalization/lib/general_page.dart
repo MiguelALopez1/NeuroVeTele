@@ -7,31 +7,126 @@ class GeneralPage extends StatefulWidget {
 
 class _GeneralPageState extends State<GeneralPage> {
   List<String> allBehaviorOptions = [
-    "Normal", "Aggressive", "Circling", "Demented",
-    // ... add all options
+    "Normal",
+    "Aggressive",
+    "Circling",
+    "Compulsive Walking",
+    "Demented",
+    "Disoriented",
+    "Distant",
+    "Fearful",
+    "Head Pressing",
+    "Seizure",
+    "Star Gazing",
+    "Withdrawn",
+    "Yawning",
   ];
-  List<String> filteredBehaviorOptions = [];
   List<String> selectedBehaviorOptions = [];
 
-  @override
-  void initState() {
-    super.initState();
-    filteredBehaviorOptions = allBehaviorOptions;
+  List<String> allMentationOptions = [
+    "Alert",
+    "Dullness",
+    "Obtunded",
+    "Stupor",
+    "Coma",
+  ];
+  List<String> selectedMentationOptions = [];
+
+  List<String> allPostureOptions = [
+    "Normal",
+    "Head Tilt",
+    "Head Turn",
+    "Torticollis",
+    "Neck Guarded",
+    "Decerebrate",
+    "Decerebellate",
+    "Opisthotonos",
+    "Schiff-Sherrington",
+    "Kyphosis",
+    "Scoliosis",
+    "Rigid",
+    "Risus sardonicus",
+    "Flaccid"
+  ];
+  List<String> selectedPostureOptions = [];
+
+  List<String> allGaitOptions = [
+    "Normal",
+    "Abnormal",
+  ];
+  List<String> selectedGaitOptions = [];
+
+  void showSearchableDropdown(List<String> allOptions, List<String> selectedOptions, String title) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    onChanged: (searchTerm) {
+                      setState(() {
+                        allOptions = allOptions
+                            .where((option) => option.toLowerCase().contains(searchTerm.toLowerCase()))
+                            .toList();
+                      });
+                    },
+                    decoration: InputDecoration(
+                      labelText: 'Search',
+                      prefixIcon: Icon(Icons.search),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ListView(
+                    children: allOptions.map((option) {
+                      return CheckboxListTile(
+                        title: Text(option),
+                        value: selectedOptions.contains(option),
+                        onChanged: (bool? newValue) {
+                          setState(() {
+                            if (newValue == true) {
+                              if (!selectedOptions.contains(option)) {
+                                selectedOptions.add(option);
+                              }
+                            } else {
+                              selectedOptions.remove(option);
+                            }
+                          });
+                        },
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    ).whenComplete(() {
+      setState(() {});
+    });
   }
 
-  void filterBehaviorOptions(String enteredKeyword) {
-    List<String> results = [];
-    if (enteredKeyword.isEmpty) {
-      results = allBehaviorOptions;
-    } else {
-      results = allBehaviorOptions
-          .where((item) => item.toLowerCase().contains(enteredKeyword.toLowerCase()))
-          .toList();
-    }
-
-    setState(() {
-      filteredBehaviorOptions = results;
-    });
+  Widget buildCategoryTile({
+    required String title,
+    required List<String> allOptions,
+    required List<String> selectedOptions,
+  }) {
+    return ListTile(
+      title: Text(title),
+      subtitle: Text(
+        selectedOptions.join(', '),
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: Icon(Icons.arrow_drop_down),
+      onTap: () {
+        showSearchableDropdown(List.from(allOptions), selectedOptions, title);
+      },
+    );
   }
 
   @override
@@ -41,56 +136,29 @@ class _GeneralPageState extends State<GeneralPage> {
         title: Text('Neurological Exam'),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              TextField(
-                onChanged: (value) => filterBehaviorOptions(value),
-                decoration: InputDecoration(
-                  labelText: 'Search',
-                  suffixIcon: Icon(Icons.search),
-                ),
-              ),
-              // PopupMenuButton can be replaced with any widget that shows a list of options
-              PopupMenuButton<String>(
-                onSelected: (String value) {
-                  setState(() {
-                    selectedBehaviorOptions.contains(value)
-                        ? selectedBehaviorOptions.remove(value)
-                        : selectedBehaviorOptions.add(value);
-                  });
-                },
-                itemBuilder: (BuildContext context) {
-                  return filteredBehaviorOptions.map<PopupMenuItem<String>>((String value) {
-                    return PopupMenuItem(
-                      value: value,
-                      child: CheckboxListTile(
-                        title: Text(value),
-                        value: selectedBehaviorOptions.contains(value),
-                        onChanged: (bool? checked) {
-                          setState(() {
-                            checked!
-                                ? selectedBehaviorOptions.add(value)
-                                : selectedBehaviorOptions.remove(value);
-                            Navigator.of(context).pop(); // close the menu
-                          });
-                        },
-                      ),
-                    );
-                  }).toList();
-                },
-                child: ListTile(
-                  title: Text('Behavior'),
-                  subtitle: Text(
-                    selectedBehaviorOptions.join(', '),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  trailing: Icon(Icons.arrow_drop_down),
-                ),
-              ),
-              // Repeat similar setup for Mentation, Posture, Gait
-            ],
-          ),
+        child: Column(
+          children: <Widget>[
+            buildCategoryTile(
+              title: 'Behavior',
+              allOptions: allBehaviorOptions,
+              selectedOptions: selectedBehaviorOptions,
+            ),
+            buildCategoryTile(
+              title: 'Mentation',
+              allOptions: allMentationOptions,
+              selectedOptions: selectedMentationOptions,
+            ),
+            buildCategoryTile(
+              title: 'Posture',
+              allOptions: allPostureOptions,
+              selectedOptions: selectedPostureOptions,
+            ),
+            buildCategoryTile(
+              title: 'Gait',
+              allOptions: allGaitOptions,
+              selectedOptions: selectedGaitOptions,
+            ),
+          ],
         ),
       ),
     );
