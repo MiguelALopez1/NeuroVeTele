@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:multi_dropdown/multiselect_dropdown.dart';
 
 class GeneralPage extends StatefulWidget {
   @override
@@ -7,74 +6,93 @@ class GeneralPage extends StatefulWidget {
 }
 
 class _GeneralPageState extends State<GeneralPage> {
-  final MultiSelectController<User> _controller = MultiSelectController();
+  List<String> allBehaviorOptions = [
+    "Normal", "Aggressive", "Circling", "Demented",
+    // ... add all options
+  ];
+  List<String> filteredBehaviorOptions = [];
+  List<String> selectedBehaviorOptions = [];
 
-  final List<ValueItem<User>> _selectedOptions = [];
+  @override
+  void initState() {
+    super.initState();
+    filteredBehaviorOptions = allBehaviorOptions;
+  }
+
+  void filterBehaviorOptions(String enteredKeyword) {
+    List<String> results = [];
+    if (enteredKeyword.isEmpty) {
+      results = allBehaviorOptions;
+    } else {
+      results = allBehaviorOptions
+          .where((item) => item.toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      filteredBehaviorOptions = results;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MultiSelect Dropdown Example'),
+        title: Text('Neurological Exam'),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                MultiSelectDropDown<User>(
-                  controller: _controller,
-                  onOptionSelected: (options) {
-                    setState(() {
-                      // Do something with the selected options
-                    });
-                  },
-                  options: <ValueItem<User>>[
-                    ValueItem(label: 'Option 1', value: User(name: 'User 1', id: 1)),
-                    ValueItem(label: 'Option 2', value: User(name: 'User 2', id: 2)),
-                    // ... Add more options as needed
-                  ],
-                  maxItems: 4,
-                  chipConfig: const ChipConfig(wrapType: WrapType.wrap),
-                  optionTextStyle: const TextStyle(fontSize: 16),
-                  selectedOptionIcon: const Icon(Icons.check_circle),
-                  onOptionRemoved: (index, option) {},
-                  optionBuilder: (context, valueItem, isSelected) {
-                    return ListTile(
-                      title: Text(valueItem.label),
-                      subtitle: Text(valueItem.value.toString()),
-                      trailing: isSelected
-                          ? const Icon(Icons.check_circle)
-                          : const Icon(Icons.radio_button_unchecked),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              TextField(
+                onChanged: (value) => filterBehaviorOptions(value),
+                decoration: InputDecoration(
+                  labelText: 'Search',
+                  suffixIcon: Icon(Icons.search),
+                ),
+              ),
+              // PopupMenuButton can be replaced with any widget that shows a list of options
+              PopupMenuButton<String>(
+                onSelected: (String value) {
+                  setState(() {
+                    selectedBehaviorOptions.contains(value)
+                        ? selectedBehaviorOptions.remove(value)
+                        : selectedBehaviorOptions.add(value);
+                  });
+                },
+                itemBuilder: (BuildContext context) {
+                  return filteredBehaviorOptions.map<PopupMenuItem<String>>((String value) {
+                    return PopupMenuItem(
+                      value: value,
+                      child: CheckboxListTile(
+                        title: Text(value),
+                        value: selectedBehaviorOptions.contains(value),
+                        onChanged: (bool? checked) {
+                          setState(() {
+                            checked!
+                                ? selectedBehaviorOptions.add(value)
+                                : selectedBehaviorOptions.remove(value);
+                            Navigator.of(context).pop(); // close the menu
+                          });
+                        },
+                      ),
                     );
-                  },
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  'Selected Options: $_selectedOptions',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                  }).toList();
+                },
+                child: ListTile(
+                  title: Text('Behavior'),
+                  subtitle: Text(
+                    selectedBehaviorOptions.join(', '),
+                    overflow: TextOverflow.ellipsis,
                   ),
+                  trailing: Icon(Icons.arrow_drop_down),
                 ),
-                // ... Rest of your widgets
-              ],
-            ),
+              ),
+              // Repeat similar setup for Mentation, Posture, Gait
+            ],
           ),
         ),
       ),
     );
   }
-}
-
-class User {
-  final String name;
-  final int id;
-
-  User({required this.name, required this.id});
-
-  @override
-  String toString() => 'User(name: $name, id: $id)';
 }
