@@ -1,62 +1,35 @@
 import 'package:flutter/material.dart';
+import 'general_page_controller.dart';
 
 class GeneralPage extends StatefulWidget {
   @override
-  _GeneralPageState createState() => _GeneralPageState();
+  GeneralPageView createState() => GeneralPageView();
 }
 
-class _GeneralPageState extends State<GeneralPage> {
-  List<String> allBehaviorOptions = [
-    "Normal",
-    "Aggressive",
-    "Circling",
-    "Compulsive Walking",
-    "Demented",
-    "Disoriented",
-    "Distant",
-    "Fearful",
-    "Head Pressing",
-    "Seizure",
-    "Star Gazing",
-    "Withdrawn",
-    "Yawning",
-  ];
-  List<String> selectedBehaviorOptions = [];
+class GeneralPageView extends State<GeneralPage> {
+  final GeneralPageController controller = GeneralPageController();
 
-  List<String> allMentationOptions = [
-    "Alert",
-    "Dullness",
-    "Obtunded",
-    "Stupor",
-    "Coma",
+  final List<String> allBehaviorOptions = [
+    "Normal", "Aggressive", "Circling", "Compulsive Walking", "Demented",
+    "Disoriented", "Distant", "Fearful", "Head Pressing", "Seizure",
+    "Star Gazing", "Withdrawn", "Yawning",
   ];
-  List<String> selectedMentationOptions = [];
 
-  List<String> allPostureOptions = [
-    "Normal",
-    "Head Tilt",
-    "Head Turn",
-    "Torticollis",
-    "Neck Guarded",
-    "Decerebrate",
-    "Decerebellate",
-    "Opisthotonos",
-    "Schiff-Sherrington",
-    "Kyphosis",
-    "Scoliosis",
-    "Rigid",
-    "Risus sardonicus",
-    "Flaccid"
+  final List<String> allMentationOptions = [
+    "Alert", "Dullness", "Obtunded", "Stupor", "Coma",
   ];
-  List<String> selectedPostureOptions = [];
 
-  List<String> allGaitOptions = [
-    "Normal",
-    "Abnormal",
+  final List<String> allPostureOptions = [
+    "Normal", "Head Tilt", "Head Turn", "Torticollis", "Neck Guarded",
+    "Decerebrate", "Decerebellate", "Opisthotonos", "Schiff-Sherrington",
+    "Kyphosis", "Scoliosis", "Rigid", "Risus sardonicus", "Flaccid",
   ];
-  List<String> selectedGaitOptions = [];
 
-  void showSearchableDropdown(List<String> allOptions, List<String> selectedOptions, String title) {
+  final List<String> allGaitOptions = [
+    "Normal", "Abnormal",
+  ];
+
+  void showSearchableDropdown(List<String> allOptions, List<String> selectedOptions, String title, Function(List<String>) updateFunction) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -69,7 +42,7 @@ class _GeneralPageState extends State<GeneralPage> {
                   child: TextField(
                     onChanged: (searchTerm) {
                       setState(() {
-                        allOptions = allOptions
+                        allOptions = allBehaviorOptions
                             .where((option) => option.toLowerCase().contains(searchTerm.toLowerCase()))
                             .toList();
                       });
@@ -107,7 +80,9 @@ class _GeneralPageState extends State<GeneralPage> {
         );
       },
     ).whenComplete(() {
-      setState(() {});
+      setState(() {
+        updateFunction(selectedOptions);
+      });
     });
   }
 
@@ -115,6 +90,7 @@ class _GeneralPageState extends State<GeneralPage> {
     required String title,
     required List<String> allOptions,
     required List<String> selectedOptions,
+    required Function(List<String>) updateFunction,
   }) {
     return ListTile(
       title: Text(title),
@@ -124,7 +100,7 @@ class _GeneralPageState extends State<GeneralPage> {
       ),
       trailing: Icon(Icons.arrow_drop_down),
       onTap: () {
-        showSearchableDropdown(List.from(allOptions), selectedOptions, title);
+        showSearchableDropdown(List.from(allOptions), selectedOptions, title, updateFunction);
       },
     );
   }
@@ -141,22 +117,26 @@ class _GeneralPageState extends State<GeneralPage> {
             buildCategoryTile(
               title: 'Behavior',
               allOptions: allBehaviorOptions,
-              selectedOptions: selectedBehaviorOptions,
+              selectedOptions: controller.data.selectedBehaviorOptions,
+              updateFunction: controller.updateBehaviorOptions,
             ),
             buildCategoryTile(
               title: 'Mentation',
               allOptions: allMentationOptions,
-              selectedOptions: selectedMentationOptions,
+              selectedOptions: controller.data.selectedMentationOptions,
+              updateFunction: controller.updateMentationOptions,
             ),
             buildCategoryTile(
               title: 'Posture',
               allOptions: allPostureOptions,
-              selectedOptions: selectedPostureOptions,
+              selectedOptions: controller.data.selectedPostureOptions,
+              updateFunction: controller.updatePostureOptions,
             ),
             buildCategoryTile(
               title: 'Gait',
               allOptions: allGaitOptions,
-              selectedOptions: selectedGaitOptions,
+              selectedOptions: controller.data.selectedGaitOptions,
+              updateFunction: controller.updateGaitOptions,
             ),
           ],
         ),

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'launch_logic.dart';
+import 'general_page_view.dart'; 
+class LaunchLogic {
+  void onDogSelected(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => GeneralPage()));
+  }
+}
 
 class LaunchPage extends StatelessWidget {
   final LaunchLogic logic = LaunchLogic();
@@ -25,3 +30,5 @@ class LaunchPage extends StatelessWidget {
     );
   }
 }
+
+void main() => runApp(MaterialApp(home: LaunchPage()));
