@@ -11,21 +11,11 @@ abstract class AbstractOption {
   void add(AbstractNL nlObject, int value) {
     pointTotal += value;
     int potentialPoint = pointTotal + value;
-    if (potentialPoint > maxPoint) {
-      pointTotal = maxPoint;
-    } else {
-      pointTotal = potentialPoint;
-    }
   }
 
   void sub(AbstractNL nlObject, int value) {
     pointTotal -= value;
     int potentialPoint = pointTotal - value;
-    if (potentialPoint < minPoint) {
-      pointTotal = minPoint;
-    } else {
-      pointTotal = potentialPoint;
-    }
   }
 
   void isGuaranteed(AbstractNL nlObject) {

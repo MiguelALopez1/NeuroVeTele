@@ -127,6 +127,160 @@
       paroxysmalEvent.add(NL.leftForebrain, 18);
       paroxysmalEvent.add(NL.intracranial,20);
       paroxysmalEvent.add(NL.openEtiology, 50);
+
+      myoclonusCervical.add(NL.c1C5Myelopathy, 20);
+      myoclonusCervical.add(NL.c6T2Myelopathy, 15);
+      myoclonusCervical.add(NL.centralCordSyndrome, 5);
+      myoclonusCervical.add(NL.systemicIllness, 2);
+      myoclonusCervical.add(NL.intracranial, 10);
+      myoclonusCervical.add(NL.nonSpecificPain, 20);
+      myoclonusCervical.add(NL.openEtiology, 20);
+      myoclonusCervical.add(NL.cervicalPain, 25);
+
+      myoclonusConstant.add(NL.intracranial, 49);
+      myoclonusConstant.add(NL.openEtiology, 50);
+
+      myoclonusEpisodic.add(NL.forebrain, 20);
+      myoclonusEpisodic.add(NL.rightForebrain, 18);
+      myoclonusEpisodic.add(NL.leftForebrain, 18);
+      myoclonusEpisodic.add(NL.systemicIllness, 15);
+      myoclonusEpisodic.add(NL.intracranial, 22);
+      myoclonusEpisodic.add(NL.openEtiology, 23);
+
+      myokymia.add(NL.neuromuscular, 15);
+      myokymia.add(NL.systemicIllness, 20);
+      myokymia.add(NL.peripheralNeuropathy, 15);
+      myokymia.add(NL.openEtiology, 15);
+
+      neuroMyotonia.add(NL.neuromuscular, 20);
+      neuroMyotonia.add(NL.systemicIllness, 20);
+      neuroMyotonia.add(NL.openEtiology, 50);
+      neuroMyotonia.add(NL.forebrain, 50);
+
+      narcolepsy.add(NL.forebrain, 25);
+      narcolepsy.add(NL.rightForebrain, 20);
+      narcolepsy.add(NL.leftForebrain, 20);
+      narcolepsy.add(NL.intracranial, 35);
+
+      headSwaying.add(NL.vestibular, 50);
+
+      //Behavior 
+      normal.add(NL.normalExam, 5);
+      normal.sub(NL.rightForebrain, 40);
+      normal.sub(NL.leftForebrain, 40);
+      normal.sub(NL.behavioral, 45);
+      normal.sub(NL.intracranial, 40);
+      
+      quiet.add(NL.normalExam, 5);
+
+      fearful.add(NL.forebrain, 5);
+      fearful.add(NL.rightForebrain, 5);
+      fearful.add(NL.leftForebrain, 5);
+      fearful.add(NL.behavioral, 20);
+      fearful.add(NL.systemicIllness, 5);
+      fearful.add(NL.intracranial, 15);
+      fearful.add(NL.nonSpecificPain, 10);
+      fearful.add(NL.openEtiology, 10);
+      fearful.add(NL.cervicalPain, 5);
+
+      withdrawn.add(NL.forebrain, 5);
+      withdrawn.add(NL.rightForebrain, 5);
+      withdrawn.add(NL.leftForebrain, 5);
+      withdrawn.add(NL.behavioral, 20);
+      withdrawn.add(NL.systemicIllness, 5);
+      withdrawn.add(NL.intracranial, 15);
+      withdrawn.add(NL.nonSpecificPain, 10);
+      withdrawn.add(NL.openEtiology, 10);
+      withdrawn.add(NL.cervicalPain, 5);
+
+      aggressive.add(NL.forebrain, 5);
+      aggressive.add(NL.rightForebrain, 5);
+      aggressive.add(NL.leftForebrain, 5);
+      aggressive.add(NL.behavioral, 20);
+      aggressive.add(NL.systemicIllness, 5);
+      aggressive.add(NL.intracranial, 15);
+      aggressive.add(NL.nonSpecificPain, 10);
+      aggressive.add(NL.openEtiology, 10);
+      aggressive.add(NL.cervicalPain, 5);
+
+      disoriented.add(NL.forebrain, 5);
+      disoriented.add(NL.rightForebrain, 5);
+      disoriented.add(NL.leftForebrain, 5);
+      disoriented.add(NL.vestibular, 10);
+      disoriented.add(NL.rightPeripheralVestibular, 10);
+      disoriented.add(NL.rightCentralVestibular, 10);
+      disoriented.add(NL.leftPeripheralVestibular, 10);
+      disoriented.add(NL.leftCentralVestibular, 10);
+      disoriented.add(NL.cerebellum, 8);
+      disoriented.add(NL.rightCerebellumParadoxical, 10);
+      disoriented.add(NL.leftCerebellumParadoxical, 10);
+      disoriented.add(NL.behavioral, 10);
+      disoriented.add(NL.systemicIllness, 5);
+      disoriented.add(NL.intracranial, 10);
+      disoriented.add(NL.openEtiology, 10);
+
+      demented.add(NL.forebrain, 25);
+      demented.add(NL.rightForebrain, 20);
+      demented.add(NL.leftForebrain, 20);
+      demented.add(NL.behavioral, 15);
+      demented.add(NL.intracranial, 25);
+      demented.add(NL.openEtiology, 25);
+
+      sleepWakeCycleChange.add(NL.forebrain, 25);
+      sleepWakeCycleChange.add(NL.rightForebrain, 20);
+      sleepWakeCycleChange.add(NL.leftForebrain, 20);
+      sleepWakeCycleChange.add(NL.behavioral, 15);
+      sleepWakeCycleChange.add(NL.intracranial, 25);
+      sleepWakeCycleChange.add(NL.openEtiology, 25);
+
+      voidingInHouse.add(NL.forebrain, 15);
+      voidingInHouse.add(NL.rightForebrain, 12);
+      voidingInHouse.add(NL.leftForebrain, 12);
+      voidingInHouse.add(NL.c1C5Myelopathy, 10);
+      voidingInHouse.add(NL.t3L3Myelopathy, 15);
+      voidingInHouse.add(NL.l4S3Myelopathy, 15);
+      voidingInHouse.add(NL.caudaEquina, 15);
+      voidingInHouse.add(NL.s1S3, 16);
+      voidingInHouse.add(NL.behavioral, 15);
+      voidingInHouse.add(NL.intracranial, 16);
+      voidingInHouse.add(NL.nonSpecificPain, 12);
+      voidingInHouse.add(NL.openEtiology, 20);
+
+      lossOfTrainBehavior.add(NL.forebrain, 25);
+      lossOfTrainBehavior.add(NL.rightForebrain, 20);
+      lossOfTrainBehavior.add(NL.leftForebrain, 20);
+      lossOfTrainBehavior.add(NL.behavioral, 20);
+      lossOfTrainBehavior.add(NL.intracranial, 25);
+      lossOfTrainBehavior.add(NL.openEtiology, 25);
+
+      circlingRight.add(NL.forebrain, 35);
+      circlingRight.add(NL.rightForebrain, 60);
+      circlingRight.add(NL.brainstem, 25);
+      circlingRight.add(NL.vestibular, 35);
+      circlingRight.add(NL.rightPeripheralVestibular, 50);
+      circlingRight.add(NL.rightCentralVestibular, 50);
+      circlingRight.add(NL.leftCerebellumParadoxical, 45);
+      circlingRight.add(NL.intracranial, 35);
+
+      circlingLeft.add(NL.forebrain, 35);
+      circlingLeft.add(NL.leftForebrain, 60);
+      circlingLeft.add(NL.brainstem, 25);
+      circlingLeft.add(NL.vestibular, 35);
+      circlingLeft.add(NL.leftPeripheralVestibular, 50);
+      circlingLeft.add(NL.leftCentralVestibular, 50);
+      circlingLeft.add(NL.rightCerebellumParadoxical, 45);
+      circlingLeft.add(NL.intracranial, 35);
+
+      circlingBoth.add(NL.forebrain, 50);
+      circlingBoth.add(NL.intracranial, 45);
+      circlingBoth.add(NL.behavioral, 45);
+
+      compulsiveWalking.add(NL.forebrain, 50);
+      compulsiveWalking.add(NL.rightForebrain, 40);
+      compulsiveWalking.add(NL.leftForebrain, 40);
+      compulsiveWalking.add(NL.behavioral, 45);
+      compulsiveWalking.add(NL.intracranial, 40);
+
   }
   static final _initializer = _initialize();
 }
