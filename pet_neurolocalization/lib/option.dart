@@ -104,7 +104,29 @@
       tremorsEpisodic.add(NL.forebrain, 20);
       tremorsEpisodic.add(NL.rightForebrain, 18);
       tremorsEpisodic.add(NL.leftForebrain, 18);
-      tremorsEpisodic.add(NL.intracranial,10);
+      tremorsEpisodic.add(NL.intracranial,20);
+      tremorsEpisodic.add(NL.openEtiology, 50);
+
+      tremorsWhenStanding.add(NL.cerebellum, 9);
+      tremorsWhenStanding.add(NL.c1C5Myelopathy, 10);
+      tremorsWhenStanding.add(NL.c6T2Myelopathy, 10);
+      tremorsWhenStanding.add(NL.t3L3Myelopathy, 10);
+      tremorsWhenStanding.add(NL.l4S3Myelopathy, 10);
+      tremorsWhenStanding.add(NL.motorUnit, 10);
+      tremorsWhenStanding.add(NL.neuromuscular, 10);
+      tremorsWhenStanding.add(NL.systemicIllness, 10);
+      tremorsWhenStanding.add(NL.intracranial, 10);
+      tremorsWhenStanding.add(NL.nonSpecificPain, 10);
+      tremorsWhenStanding.add(NL.myopathy, 10);
+      tremorsWhenStanding.add(NL.peripheralNeuropathy, 10);
+      tremorsWhenStanding.add(NL.openEtiology, 10);
+      tremorsWhenStanding.add(NL.cervicalPain, 10);
+
+      paroxysmalEvent.add(NL.forebrain, 20);
+      paroxysmalEvent.add(NL.rightForebrain, 18);
+      paroxysmalEvent.add(NL.leftForebrain, 18);
+      paroxysmalEvent.add(NL.intracranial,20);
+      paroxysmalEvent.add(NL.openEtiology, 50);
   }
   static final _initializer = _initialize();
 }
