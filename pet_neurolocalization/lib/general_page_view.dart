@@ -10,23 +10,36 @@ class GeneralPageView extends State<GeneralPage> {
   final GeneralPageController controller = GeneralPageController();
 
   final List<String> allBehaviorOptions = [
-    "Normal", "Aggressive", "Circling", "Compulsive Walking", "Demented",
-    "Disoriented", "Distant", "Fearful", "Head Pressing", "Seizure",
-    "Star Gazing", "Withdrawn", "Yawning",
+    "Normal", "Quiet", "Fearful", "Withdrawn", "Aggressive", "Disoriented",
+    "Demented", "Sleep/Wake Cycle Change", "Voiding in House", "Loss of train behavior",
+    "Circling - Right", "Circling - Left", "Circling - Both", "Compulsive Walking",
+    "Head Pressing", "Other"
   ];
 
   final List<String> allMentationOptions = [
-    "Alert", "Dullness", "Obtunded", "Stupor", "Coma",
+    "Alert", "Lethargic", "Obtunded", "Stuporous", "Comatose",
   ];
 
   final List<String> allPostureOptions = [
     "Normal", "Head Tilt", "Head Turn", "Torticollis", "Neck Guarded",
-    "Decerebrate", "Decerebellate", "Opisthotonos", "Schiff-Sherrington",
-    "Kyphosis", "Scoliosis", "Rigid", "Risus sardonicus", "Flaccid",
+    "Archer Posture", "Holding Up Limb", "Latterally Recumbent", "Decerebrate", 
+    "Decerebellate", "Opisthotonos", "Schiff-Sherrington","Kyphosis", "Scoliosis", 
+    "Diffuse Rigidity", "Risus Sardonicus", "Diffuse Flaccidity", 
+    "Spastic - Thoracic Limbs", "Spastic - Pelvic Limbs", "Spastic - All Limbs",
+    "Crouched Posture - Thoracic Limbs", "Crouched Posture - Pelvic Limbs", 
+    "Crouched Posture - All Limbs", "Praying Posture",
   ];
 
   final List<String> allGaitOptions = [
-    "Normal", "Abnormal",
+    "Ambulatory - Normal", "Ambulatory - Lameness",
+  ];
+
+  final List<String> allInvoluntaryMovementsOptions = [
+    "Seizures - Focal", "Seizures - Generalized", "Tremors - Action Related",
+    "Tremors - Constant", "Tremors - Episodic", "Tremors - When Standing", 
+    "Paroxysmal Event", "Myoclonus - Cervical", "Myoclonus - Constant", 
+    "Myoclonus - Episodic", "Myokymia", "(Neuro) Myotonia", "Narcolepsy",
+    "Head Swaying",
   ];
 
   void showSearchableDropdown(List<String> allOptions, List<String> selectedOptions, String title, Function(List<String>) updateFunction) {
@@ -106,41 +119,49 @@ class GeneralPageView extends State<GeneralPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Neurological Exam'),
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('General Exam'),
+    ),
+    body: SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start, 
+        children: <Widget>[
+          buildCategoryTile(
+            title: 'Behavior',
+            allOptions: allBehaviorOptions,
+            selectedOptions: controller.data.selectedBehaviorOptions,
+            updateFunction: controller.updateBehaviorOptions,
+          ),
+          buildCategoryTile(
+            title: 'Mentation',
+            allOptions: allMentationOptions,
+            selectedOptions: controller.data.selectedMentationOptions,
+            updateFunction: controller.updateMentationOptions,
+          ),
+          buildCategoryTile(
+            title: 'Posture',
+            allOptions: allPostureOptions,
+            selectedOptions: controller.data.selectedPostureOptions,
+            updateFunction: controller.updatePostureOptions,
+          ),
+          buildCategoryTile(
+            title: 'Gait',
+            allOptions: allGaitOptions,
+            selectedOptions: controller.data.selectedGaitOptions,
+            updateFunction: controller.updateGaitOptions,
+          ),
+          buildCategoryTile(
+            title: 'Involuntary Movements',
+            allOptions: allInvoluntaryMovementsOptions,
+            selectedOptions: controller.data.selectedInvoluntaryMovementsOptions,
+            updateFunction: controller.updateInvoluntaryMovementsOptions,
+          ),
+        ],
       ),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            buildCategoryTile(
-              title: 'Behavior',
-              allOptions: allBehaviorOptions,
-              selectedOptions: controller.data.selectedBehaviorOptions,
-              updateFunction: controller.updateBehaviorOptions,
-            ),
-            buildCategoryTile(
-              title: 'Mentation',
-              allOptions: allMentationOptions,
-              selectedOptions: controller.data.selectedMentationOptions,
-              updateFunction: controller.updateMentationOptions,
-            ),
-            buildCategoryTile(
-              title: 'Posture',
-              allOptions: allPostureOptions,
-              selectedOptions: controller.data.selectedPostureOptions,
-              updateFunction: controller.updatePostureOptions,
-            ),
-            buildCategoryTile(
-              title: 'Gait',
-              allOptions: allGaitOptions,
-              selectedOptions: controller.data.selectedGaitOptions,
-              updateFunction: controller.updateGaitOptions,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+    ),
+  );
+}
+
 }

@@ -29,5 +29,9 @@ class GeneralPageController {
   void updateGaitOptions(List<String> options) {
     data.selectedGaitOptions = options;
   }
+
+  void updateInvoluntaryMovementsOptions(List<String> options) {
+    data.selectedInvoluntaryMovementsOptions = options;
+  }
 }
 

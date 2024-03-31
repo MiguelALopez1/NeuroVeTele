@@ -3,4 +3,5 @@ class GeneralPageModel {
   List<String> selectedMentationOptions = [];
   List<String> selectedPostureOptions = [];
   List<String> selectedGaitOptions = [];
+  List<String> selectedInvoluntaryMovementsOptions = [];
 }
