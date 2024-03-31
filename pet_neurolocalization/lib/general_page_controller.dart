@@ -33,5 +33,26 @@ class GeneralPageController {
   void updateInvoluntaryMovementsOptions(List<String> options) {
     data.selectedInvoluntaryMovementsOptions = options;
   }
+
+  List<String> get selectedBehaviorOptions {
+    return data.selectedBehaviorOptions;
+  }
+
+  List<String> get selectedMentationOptions {
+    return data.selectedMentationOptions;
+  }
+
+  List<String> get selectedPostureOptions {
+    return data.selectedPostureOptions;
+  }
+
+  List<String> get selectedGaitOptions {
+    return data.selectedGaitOptions;
+  }
+
+  List<String> get selectedInvoluntaryMovementsOptions {
+    return data.selectedInvoluntaryMovementsOptions;
+  }
+
 }
 

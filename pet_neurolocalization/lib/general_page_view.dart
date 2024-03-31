@@ -21,7 +21,7 @@ class GeneralPageView extends State<GeneralPage> {
   ];
 
   final List<String> allPostureOptions = [
-    "Normal", "Head Tilt", "Head Turn", "Torticollis", "Neck Guarded",
+    "Normal Posture", "Head Tilt", "Head Turn", "Torticollis", "Neck Guarded",
     "Archer Posture", "Holding Up Limb", "Latterally Recumbent", "Decerebrate", 
     "Decerebellate", "Opisthotonos", "Schiff-Sherrington","Kyphosis", "Scoliosis", 
     "Diffuse Rigidity", "Risus Sardonicus", "Diffuse Flaccidity", 
@@ -35,7 +35,7 @@ class GeneralPageView extends State<GeneralPage> {
   ];
 
   final List<String> allInvoluntaryMovementsOptions = [
-    "Seizures - Focal", "Seizures - Generalized", "Tremors - Action Related",
+    "None", "Seizures - Focal", "Seizures - Generalized", "Tremors - Action Related",
     "Tremors - Constant", "Tremors - Episodic", "Tremors - When Standing", 
     "Paroxysmal Event", "Myoclonus - Cervical", "Myoclonus - Constant", 
     "Myoclonus - Episodic", "Myokymia", "(Neuro) Myotonia", "Narcolepsy",
