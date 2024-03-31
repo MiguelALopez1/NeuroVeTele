@@ -78,10 +78,33 @@
     static final AbstractOption headSwaying = AbstractFactory.createOption("Head Swaying");
 
     static void _initialize() {
-    none.add(NL.normalExam, 5);
-    seizuresFocal.add(NL.forebrain, 100);
-    
+      //Involuntary Movements
+      none.add(NL.normalExam, 5);
 
+      seizuresFocal.add(NL.forebrain, 100);
+      seizuresFocal.add(NL.rightForebrain, 60);
+      seizuresFocal.add(NL.leftForebrain, 60);
+      seizuresFocal.add(NL.intracranial, 10);
+
+      seizuresGeneralized.add(NL.forebrain, 100);
+      seizuresGeneralized.add(NL.rightForebrain, 60);
+      seizuresGeneralized.add(NL.leftForebrain, 60);
+      seizuresGeneralized.add(NL.intracranial, 10);
+
+      tremorsActionRelated.add(NL.cerebellum, 50);
+      tremorsActionRelated.add(NL.neuromuscular, 48);
+      tremorsActionRelated.add(NL.intracranial, 10);
+      tremorsActionRelated.add(NL.openEtiology, 49);
+
+      tremorsConstant.add(NL.cerebellum, 50);
+      tremorsConstant.add(NL.neuromuscular, 48);
+      tremorsConstant.add(NL.intracranial, 10);
+      tremorsConstant.add(NL.openEtiology, 49);
+
+      tremorsEpisodic.add(NL.forebrain, 20);
+      tremorsEpisodic.add(NL.rightForebrain, 18);
+      tremorsEpisodic.add(NL.leftForebrain, 18);
+      tremorsEpisodic.add(NL.intracranial,10);
   }
   static final _initializer = _initialize();
 }
