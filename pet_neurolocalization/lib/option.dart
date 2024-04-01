@@ -59,7 +59,40 @@
 
     //Gait
     static final AbstractOption ambulatoryNormal = AbstractFactory.createOption("Ambulatory - Normal");
-    static final AbstractOption ambulatoryLameness = AbstractFactory.createOption("Ambulatory - Lameness");
+    static final AbstractOption ambulatoryLamenessThoracic = AbstractFactory.createOption("Ambulatory - Lameness Thoracic Limb");
+    static final AbstractOption ambulatoryLamenessPelvic = AbstractFactory.createOption("Ambulatory - Lameness Pelivc Limb");
+    static final AbstractOption ambulatoryMonoparesisThoracic = AbstractFactory.createOption("Ambulatory - Monoparesis Thoracic Limb");
+    static final AbstractOption ambulatoryMonoparesisPelvic = AbstractFactory.createOption("Ambulatory - Monoparesis Pelvic Limb");
+    static final AbstractOption ambulatoryMonoplegiaThoracic = AbstractFactory.createOption("Ambulatory - Monoplegia Thoracic Limb");
+    static final AbstractOption ambulatoryMonoplegiaPelvic = AbstractFactory.createOption("Ambulatory - Monoplegia Pelvic Limb");
+    static final AbstractOption ambulatoryParaparesisThoracic = AbstractFactory.createOption("Ambulatory - Paraparesis Thoracic Limb");
+    static final AbstractOption ambulatoryParaparesisPelvic = AbstractFactory.createOption("Ambulatory - Paraparesis Pelvic Limb");
+    static final AbstractOption ambulatoryTetraparesis  = AbstractFactory.createOption("Ambulatory - Tetraparesis");
+    static final AbstractOption ambulatoryShortStridedThoracic = AbstractFactory.createOption("Ambulatory - Short Strided Thoracic Limb");
+    static final AbstractOption ambulatoryShortStridedPelvic = AbstractFactory.createOption("Ambulatory - Short Strided Pelvic Limb");
+    static final AbstractOption ambulatoryShortStridedAll = AbstractFactory.createOption("Ambulatory - Short Strided All Limbs");
+    static final AbstractOption ambulatory2EngineGait = AbstractFactory.createOption("Ambulatory - 2-Engine Gait");
+    static final AbstractOption ambulatoryParaparesisPelvicProprioceptiveAtaxia = AbstractFactory.createOption("Ambulatory - Paraparesis Pelvic Limbs with Proprioceptive Ataxia");
+    static final AbstractOption ambulatoryTetraparesisProprioceptiveAtaxia = AbstractFactory.createOption("Ambulatory - Tetraparesis with Proprioceptive Ataxia");
+    static final AbstractOption ambulatoryProprioceptiveAtaxiaPelvic = AbstractFactory.createOption("Ambulatory - Proprioceptive Ataxia Pelvic Limb");
+    static final AbstractOption ambulatoryProprioceptiveAtaxiaAll = AbstractFactory.createOption("Ambulatory - Proprioceptive Ataxia All Limbs");
+    static final AbstractOption ambulatoryFatiguable = AbstractFactory.createOption("Ambulatory - Fatiguable");
+    static final AbstractOption ambulatoryTetraparesisVestibularAtaxia = AbstractFactory.createOption("Ambulatory - Tetraparesis with Vestibular Ataxia");
+    static final AbstractOption ambulatoryTetraparesisCerebellarAtaxia = AbstractFactory.createOption("Ambulatory - Tetraparesis with Cerebellar Ataxia");
+    static final AbstractOption ambulatoryVestibularAtaxia = AbstractFactory.createOption("Ambulatory - Vestibular Ataxia");
+    static final AbstractOption ambulatoryCerebellarAtaxia = AbstractFactory.createOption("Ambulatory - Cerebellar Ataxia");
+    static final AbstractOption ambulatoryMixedAtaxia = AbstractFactory.createOption("Ambulatory - Mixed Ataxia");
+    static final AbstractOption ambulatoryMixedAtaxiaTetraparesis = AbstractFactory.createOption("Ambulatory - Mixed Ataxia with Tetraparesis");
+    static final AbstractOption ambulatoryHemiparesisLeft = AbstractFactory.createOption("Ambulatory - Hemiparesis Left");
+    static final AbstractOption ambulatoryHemiparesisLeftProprioceptiveAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Left with Proprioceptive Ataxia");
+    static final AbstractOption ambulatoryHemiparesisLeftCerebellarAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Left with Cerebellar Ataxia");
+    static final AbstractOption ambulatoryHemiparesisLeftMixedAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Left with Mixed Ataxia");
+    static final AbstractOption ambulatoryHemiparesisLeftVestibularAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Left with Vestibular Ataxia");
+    static final AbstractOption ambulatoryHemiparesisRight = AbstractFactory.createOption("Ambulatory - Hemiparesis Right");
+    static final AbstractOption ambulatoryHemiparesisRightProprioceptiveAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Right with Proprioceptive Ataxia");
+    static final AbstractOption ambulatoryHemiparesisRightCerebellarAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Right with Cerebellar Ataxia");
+    static final AbstractOption ambulatoryHemiparesisRightMixedAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Right with Mixed Ataxia");
+    static final AbstractOption ambulatoryHemiparesisRightVestibularAtaxia = AbstractFactory.createOption("Ambulatory - Hemiparesis Right with Vestibular Ataxia");
 
     //Involuntary Movements
     static final AbstractOption none = AbstractFactory.createOption("None");
@@ -632,15 +665,269 @@ static void initializePrayingPosture() {
 }
 
 static void initializeAmbulatoryNormal() {
-    ambulatoryNormal.add(NL.normalExam, 0);
-    ambulatoryNormal.add(NL.lameness, 0);
+    ambulatoryNormal.add(NL.normalExam, 5);
 }
 
-static void initializeAmbulatoryLameness() {
-    ambulatoryLameness.add(NL.normalExam, 0);
-    ambulatoryLameness.add(NL.lameness, 0);
+static void initializeAmbulatoryLamenessThoracic() {
+  ambulatoryLamenessThoracic.add(NL.c1C5Myelopathy, 5);
+  ambulatoryLamenessThoracic.add(NL.c6T2Myelopathy, 5);
+  ambulatoryLamenessThoracic.add(NL.orthopedic, 50);
+  ambulatoryLamenessThoracic.add(NL.nerveRootSignature, 20);
+  ambulatoryLamenessThoracic.add(NL.nonSpecificPain, 5);
 }
 
+static void initializeAmbulatoryLamenessPelvic() {
+  ambulatoryLamenessThoracic.add(NL.c1C5Myelopathy, 5);
+  ambulatoryLamenessThoracic.add(NL.c6T2Myelopathy, 5);
+  ambulatoryLamenessThoracic.add(NL.orthopedic, 50);
+  ambulatoryLamenessThoracic.add(NL.nerveRootSignature, 20);
+  ambulatoryLamenessThoracic.add(NL.nonSpecificPain, 5);
+}
 
+static void initializeAmbulatoryMonoparesisThoracic() {
+  ambulatoryMonoparesisThoracic.add(NL.c6T2Myelopathy, 15);
+  ambulatoryMonoparesisThoracic.add(NL.orthopedic, 5);
+  ambulatoryMonoparesisThoracic.add(NL.nerveRootSignature, 15);
+  ambulatoryMonoparesisThoracic.add(NL.brachialPlexus, 35);
+  ambulatoryMonoparesisThoracic.add(NL.nonSpecificPain, 5);
+}
+
+static void initializeAmbulatoryMonoparesisPelvic() {
+  ambulatoryMonoparesisPelvic.add(NL.l4S3Myelopathy, 15);
+  ambulatoryMonoparesisPelvic.add(NL.orthopedic, 5);
+  ambulatoryMonoparesisPelvic.add(NL.nerveRootSignature, 15);
+  ambulatoryMonoparesisPelvic.add(NL.caudaEquina, 30);
+  ambulatoryMonoparesisPelvic.add(NL.aorticThromboembolism, 5);
+  ambulatoryMonoparesisPelvic.add(NL.nonSpecificPain, 5);
+}
+
+static void initializeAmbulatoryMonoplegiaThoracic() {
+  ambulatoryMonoplegiaThoracic.add(NL.c6T2Myelopathy, 15);
+  ambulatoryMonoplegiaThoracic.add(NL.orthopedic, 5);
+  ambulatoryMonoplegiaThoracic.add(NL.nerveRootSignature, 15);
+  ambulatoryMonoplegiaThoracic.add(NL.brachialPlexus, 50);
+  ambulatoryMonoplegiaThoracic.add(NL.nonSpecificPain, 5);
+}
+
+static void initializeAmbulatoryMonoplegiaPelvic() {
+  ambulatoryMonoplegiaPelvic.add(NL.l4S3Myelopathy, 25);
+  ambulatoryMonoplegiaPelvic.add(NL.orthopedic, 5);
+  ambulatoryMonoplegiaPelvic.add(NL.nerveRootSignature, 15);
+  ambulatoryMonoplegiaPelvic.add(NL.caudaEquina, 40);
+  ambulatoryMonoplegiaPelvic.add(NL.aorticThromboembolism, 5);
+  ambulatoryMonoplegiaPelvic.add(NL.nonSpecificPain, 5);
+}
+
+static void initializeAmbulatoryParaparesisThoracic() {
+  ambulatoryParaparesisThoracic.add(NL.c1C5Myelopathy, 20);
+  ambulatoryParaparesisThoracic.add(NL.c6T2Myelopathy, 27);
+  ambulatoryParaparesisThoracic.add(NL.orthopedic, 5);
+  ambulatoryParaparesisThoracic.add(NL.brachialPlexus, 5);
+  ambulatoryParaparesisThoracic.add(NL.motorUnit, 7);
+  ambulatoryParaparesisThoracic.add(NL.neuromuscular, 8);
+  ambulatoryParaparesisThoracic.add(NL.centralCordSyndrome, 50);
+}
+
+static void initializeAmbulatoryParaparesisPelvic() {
+  ambulatoryParaparesisPelvic.add(NL.t3L3Myelopathy, 50);
+  ambulatoryParaparesisPelvic.add(NL.l4S3Myelopathy, 45);
+  ambulatoryParaparesisPelvic.add(NL.caudaEquina, 40);
+  ambulatoryParaparesisPelvic.add(NL.motorUnit, 35);
+  ambulatoryParaparesisPelvic.add(NL.neuromuscular, 30);
+  ambulatoryParaparesisPelvic.add(NL.aorticThromboembolism, 10);
+}
+
+static void initializeAmbulatoryTetraparesis() {
+  ambulatoryTetraparesis.add(NL.forebrain, 10);
+  ambulatoryTetraparesis.add(NL.brainstem, 15);
+  ambulatoryTetraparesis.add(NL.vestibular, 10);
+  ambulatoryTetraparesis.add(NL.rightCentralVestibular, 5);
+  ambulatoryTetraparesis.add(NL.leftCentralVestibular, 5);
+  ambulatoryTetraparesis.add(NL.cerebellum, 5);
+  ambulatoryTetraparesis.add(NL.c1C5Myelopathy, 30);
+  ambulatoryTetraparesis.add(NL.c6T2Myelopathy, 25);
+  ambulatoryTetraparesis.add(NL.motorUnit, 25);
+  ambulatoryTetraparesis.add(NL.neuromuscular, 22);
+  ambulatoryTetraparesis.add(NL.intracranial, 5);
+}
+
+static void initializeAmbulatoryShortStridedThoracic() {
+  ambulatoryShortStridedThoracic.add(NL.c6T2Myelopathy, 50);
+  ambulatoryShortStridedThoracic.add(NL.orthopedic, 10);
+  ambulatoryShortStridedThoracic.add(NL.brachialPlexus, 5);
+  ambulatoryShortStridedThoracic.add(NL.motorUnit, 20);
+  ambulatoryShortStridedThoracic.add(NL.neuromuscular, 20);
+  ambulatoryShortStridedThoracic.add(NL.centralCordSyndrome, 15);
+  ambulatoryShortStridedThoracic.add(NL.behavioral, 15);
+  ambulatoryShortStridedThoracic.add(NL.myopathy, 15);
+  ambulatoryShortStridedThoracic.add(NL.peripheralNeuropathy, 15);
+}
+
+static void initializeAmbulatoryShortStridedPelvic() {
+  ambulatoryShortStridedPelvic.add(NL.l4S3Myelopathy, 35);
+  ambulatoryShortStridedPelvic.add(NL.caudaEquina, 40);
+  ambulatoryShortStridedPelvic.add(NL.motorUnit, 30);
+  ambulatoryShortStridedPelvic.add(NL.neuromuscular, 30);
+  ambulatoryShortStridedPelvic.add(NL.aorticThromboembolism, 10);
+  ambulatoryShortStridedPelvic.add(NL.myopathy, 20);
+  ambulatoryShortStridedPelvic.add(NL.peripheralNeuropathy, 20);
+}
+
+static void initializeAmbulatoryShortStridedAll() {
+  ambulatoryShortStridedAll.add(NL.motorUnit, 75);
+  ambulatoryShortStridedAll.add(NL.neuromuscular, 40);
+  ambulatoryShortStridedAll.add(NL.myopathy, 35);
+}
+
+static void initializeAmbulatory2EngineGait() {
+  ambulatory2EngineGait.add(NL.c6T2Myelopathy, 100);
+}
+
+static void initializeAmbulatoryParaparesisPelvicProprioceptiveAtaxia() {
+  ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.t3L3Myelopathy, 50);
+  ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.l4S3Myelopathy, 25);
+  ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.caudaEquina, 10);
+}
+
+static void initializeAmbulatoryTetraparesisProprioceptiveAtaxia() {
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.forebrain, 10);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.brainstem, 15);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.vestibular, 10);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.rightCentralVestibular, 5);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.leftCentralVestibular, 5);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.cerebellum, 5);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.c1C5Myelopathy, 30);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.c6T2Myelopathy, 15);
+  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.intracranial, 5);
+}
+
+static void initializeAmbulatoryProprioceptiveAtaxiaPelvic() {
+  ambulatoryProprioceptiveAtaxiaPelvic.add(NL.t3L3Myelopathy, 40);
+}
+
+static void initializeAmbulatoryProprioceptiveAtaxiaAll() {
+  ambulatoryProprioceptiveAtaxiaAll.add(NL.forebrain, 10);
+  ambulatoryProprioceptiveAtaxiaAll.add(NL.c1C5Myelopathy, 50);
+  ambulatoryProprioceptiveAtaxiaAll.add(NL.brainstem, 15);
+}
+
+static void initializeAmbulatoryFatiguable() {
+  ambulatoryFatiguable.add(NL.neuromuscular, 50);
+  ambulatoryFatiguable.add(NL.motorUnit, 25);
+  ambulatoryFatiguable.add(NL.myopathy, 25);
+}
+
+static void initializeAmbulatoryTetraparesisVestibularAtaxia() {
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.brainstem, 15);
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.vestibular, 35);
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.rightPeripheralVestibular, 30);
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.rightCentralVestibular, 20);
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.leftPeripheralVestibular, 30);
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.leftCentralVestibular, 20);
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.rightCerebellumParadoxical, 20);
+  ambulatoryTetraparesisVestibularAtaxia.add(NL.leftCerebellumParadoxical, 20);
+}
+
+static void initializeAmbulatoryTetraparesisCerebellarAtaxia() {
+  ambulatoryTetraparesisCerebellarAtaxia.add(NL.cerebellum, 40);
+  ambulatoryTetraparesisCerebellarAtaxia.add(NL.rightCerebellumParadoxical, 10);
+  ambulatoryTetraparesisCerebellarAtaxia.add(NL.leftCerebellumParadoxical, 10);
+}
+
+static void initializeAmbulatoryVestibularAtaxia() {
+  ambulatoryVestibularAtaxia.add(NL.brainstem, 15);
+  ambulatoryVestibularAtaxia.add(NL.vestibular, 60);
+  ambulatoryVestibularAtaxia.add(NL.rightPeripheralVestibular, 40);
+  ambulatoryVestibularAtaxia.add(NL.rightCentralVestibular, 20);
+  ambulatoryVestibularAtaxia.add(NL.leftPeripheralVestibular, 40);
+  ambulatoryVestibularAtaxia.add(NL.leftCentralVestibular, 20);
+  ambulatoryVestibularAtaxia.add(NL.cerebellum, 5);
+}
+
+static void initializeAmbulatoryCerebellarAtaxia() {
+  ambulatoryCerebellarAtaxia.add(NL.cerebellum, 75);
+  ambulatoryCerebellarAtaxia.add(NL.rightCerebellumParadoxical, 10);
+  ambulatoryCerebellarAtaxia.add(NL.leftCerebellumParadoxical, 10);
+}
+
+static void initializeAmbulatoryMixedAtaxia() {
+  ambulatoryMixedAtaxia.add(NL.brainstem, 70);
+  ambulatoryMixedAtaxia.add(NL.rightCentralVestibular, 25);
+}
+
+static void initializeAmbulatoryMixedAtaxiaTetraparesis() {
+  ambulatoryMixedAtaxiaTetraparesis.add(NL.leftCentralVestibular, 25);
+  ambulatoryMixedAtaxiaTetraparesis.add(NL.cerebellum, 50);
+  ambulatoryMixedAtaxiaTetraparesis.add(NL.rightCerebellumParadoxical, 20);
+  ambulatoryMixedAtaxiaTetraparesis.add(NL.leftCerebellumParadoxical, 20);
+}
+
+static void initializeAmbulatoryHemiparesisLeft() {
+  ambulatoryHemiparesisLeft.add(NL.rightForebrain, 25);
+  ambulatoryHemiparesisLeft.sub(NL.leftForebrain, 25);
+  ambulatoryHemiparesisLeft.add(NL.brainstem, 18);
+  ambulatoryHemiparesisLeft.add(NL.leftCentralVestibular, 15);
+  ambulatoryHemiparesisLeft.add(NL.leftCerebellumParadoxical, 15);
+  ambulatoryHemiparesisLeft.add(NL.c1C5Myelopathy, 35);
+  ambulatoryHemiparesisLeft.add(NL.c6T2Myelopathy, 15);
+}
+
+static void initializeAmbulatoryHemiparesisLeftProprioceptiveAtaxia() {
+  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.rightForebrain, 25);
+  ambulatoryHemiparesisLeftProprioceptiveAtaxia.sub(NL.leftForebrain, 25);
+  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.brainstem, 18);
+  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.c1C5Myelopathy, 35);
+  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.c6T2Myelopathy, 15);
+}
+
+static void initializeAmbulatoryHemiparesisLeftCerebellarAtaxia() {
+  ambulatoryHemiparesisLeftCerebellarAtaxia.add(NL.leftCerebellumParadoxical, 100);
+}
+
+static void initializeAmbulatoryHemiparesisLeftMixedAtaxia() {
+  ambulatoryHemiparesisLeftMixedAtaxia.add(NL.brainstem, 35);
+  ambulatoryHemiparesisLeftMixedAtaxia.add(NL.leftCentralVestibular, 40);
+  ambulatoryHemiparesisLeftMixedAtaxia.add(NL.leftCerebellumParadoxical, 40);
+}
+
+static void initializeAmbulatoryHemiparesisLeftVestibularAtaxia() {
+  ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.brainstem, 18);
+  ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.leftCentralVestibular, 50);
+  ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.leftCerebellumParadoxical, 25);
+}
+
+static void initializeAmbulatoryHemiparesisRight() {
+  ambulatoryHemiparesisRight.add(NL.leftForebrain, 25);
+  ambulatoryHemiparesisRight.sub(NL.rightForebrain, 25);
+  ambulatoryHemiparesisRight.add(NL.brainstem, 18);
+  ambulatoryHemiparesisRight.add(NL.rightCentralVestibular, 15);
+  ambulatoryHemiparesisRight.add(NL.rightCerebellumParadoxical, 15);
+  ambulatoryHemiparesisRight.add(NL.c1C5Myelopathy, 35);
+  ambulatoryHemiparesisRight.add(NL.c6T2Myelopathy, 15);
+}
+
+static void initializeAmbulatoryHemiparesisRightProprioceptiveAtaxia() {
+  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.leftForebrain, 25);
+  ambulatoryHemiparesisRightProprioceptiveAtaxia.sub(NL.rightForebrain, 25);
+  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.brainstem, 18);
+  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.c1C5Myelopathy, 35);
+  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.c6T2Myelopathy, 15);
+}
+
+static void initializeAmbulatoryHemiparesisRightCerebellarAtaxia() {
+  ambulatoryHemiparesisRightCerebellarAtaxia.add(NL.rightCerebellumParadoxical, 100);
+}
+
+static void initializeAmbulatoryHemiparesisRightMixedAtaxia() {
+  ambulatoryHemiparesisRightMixedAtaxia.add(NL.brainstem, 35);
+  ambulatoryHemiparesisRightMixedAtaxia.add(NL.rightCentralVestibular, 40);
+  ambulatoryHemiparesisRightMixedAtaxia.add(NL.rightCerebellumParadoxical, 40);
+}
+
+static void initializeAmbulatoryHemiparesisRightVestibularAtaxia() {
+  ambulatoryHemiparesisRightVestibularAtaxia.add(NL.brainstem, 18);
+  ambulatoryHemiparesisRightVestibularAtaxia.add(NL.rightCentralVestibular, 50);
+  ambulatoryHemiparesisRightVestibularAtaxia.add(NL.rightCerebellumParadoxical, 25);
+}
 
 }

@@ -34,6 +34,15 @@ class GeneralPageController {
     data.selectedInvoluntaryMovementsOptions = options;
   } 
 
+  bool visibleButton()
+  {
+    return data.selectedInvoluntaryMovementsOptions.isNotEmpty && 
+      data.selectedPostureOptions.isNotEmpty && 
+      data.selectedBehaviorOptions.isNotEmpty &&
+      data.selectedMentationOptions.isNotEmpty &&
+      data.selectedGaitOptions.isNotEmpty;
+  }
+
   List<String> get allSelectedOptions {
     return [
       ...data.selectedBehaviorOptions,

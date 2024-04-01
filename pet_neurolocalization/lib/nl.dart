@@ -35,6 +35,8 @@
     static final AbstractNL nerveRootSignature = AbstractFactory.createNL("Nerve Root Signature");
     static final AbstractNL orthopedic = AbstractFactory.createNL("Orthopedic");
     static final AbstractNL lameness = AbstractFactory.createNL("Lameness");
+    static final AbstractNL brachialPlexus = AbstractFactory.createNL("Brachial Plexus");
+    static final AbstractNL aorticThromboembolism = AbstractFactory.createNL("Aortic Thromboembolism");
 
     NL._();
 }

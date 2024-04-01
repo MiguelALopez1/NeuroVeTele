@@ -4,6 +4,7 @@ import 'option_interpreter.dart';
 import 'option_operator.dart';
 import 'abstract_nl.dart';
 import 'nl_calculate.dart';
+import 'cranial_page_view.dart';
 import 'result_page.dart';
 
 
@@ -37,7 +38,23 @@ class GeneralPageView extends State<GeneralPage> {
   ];
 
   final List<String> allGaitOptions = [
-    "Ambulatory - Normal", "Ambulatory - Lameness",
+    "Ambulatory - Normal", "Ambulatory - Lameness Thoracic Limb", "Ambulatory - Lameness Pelvic Limb",
+    "Ambulatory - Monoparesis Thoracic Limb", "Ambulatory - Monoparesis Pelvic Limb",
+    "Ambulatory - Monoplegia Thoracic Limb", "Ambulatory - Monoplegia Pelvic Limb",
+    "Ambulatory - Paraparesis Thoracic Limb", "Ambulatory - Paraparesis Pelvic Limb",
+    "Ambulatory - Tetraparesis", "Ambulatory - Short Strided Thoracic Limb",
+    "Ambulatory - Short Strided Pelvic Limb", "Ambulatory - Short Strided All Limbs",
+    "Ambulatory - 2-Engine Gait", "Ambulatory - Paraparesis Pelvic Limbs with Proprioceptive Ataxia",
+    "Ambulatory - Tetraparesis with Proprioceptive Ataxia", "Ambulatory - Proprioceptive Ataxia Pelvic Limb",
+    "Ambulatory - Proprioceptive Ataxia All Limbs", "Ambulatory - Fatiguable",
+    "Ambulatory - Tetraparesis with Vestibular Ataxia", "Ambulatory - Tetraparesis with Cerebellar Ataxia",
+    "Ambulatory - Vestibular Ataxia", "Ambulatory - Cerebellar Ataxia", "Ambulatory - Mixed Ataxia",
+    "Ambulatory - Mixed Ataxia with Tetraparesis", "Ambulatory - Hemiparesis Left",
+    "Ambulatory - Hemiparesis Left with Proprioceptive Ataxia", "Ambulatory - Hemiparesis Left with Cerebellar Ataxia",
+    "Ambulatory - Hemiparesis Left with Mixed Ataxia", "Ambulatory - Hemiparesis Left with Vestibular Ataxia",
+    "Ambulatory - Hemiparesis Right", "Ambulatory - Hemiparesis Right with Proprioceptive Ataxia",
+    "Ambulatory - Hemiparesis Right with Cerebellar Ataxia", "Ambulatory - Hemiparesis Right with Mixed Ataxia",
+    "Ambulatory - Hemiparesis Right with Vestibular Ataxia"
   ];
 
   final List<String> allInvoluntaryMovementsOptions = [
@@ -165,6 +182,15 @@ Widget build(BuildContext context) {
             updateFunction: controller.updateInvoluntaryMovementsOptions,
           ),
           ElevatedButton(
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CranialPage())),
+            child: Text('Next (Cranial Nerves)'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.lightBlueAccent,
+            )
+          ),
+          Visibility(
+            visible: controller.visibleButton(),
+            child: ElevatedButton(
             onPressed: () {
               var initializers = OptionInterpreter.interpret(controller.allSelectedOptions);
               OptionOperator operator = OptionOperator();
@@ -178,6 +204,7 @@ Widget build(BuildContext context) {
             },
             child: Text('Neurolocalize'),
           ),
+          )
         ],
       ),
     ),

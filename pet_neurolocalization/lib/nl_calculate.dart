@@ -37,6 +37,8 @@ class NLCalculate {
       NL.nerveRootSignature,
       NL.orthopedic,
       NL.lameness,
+      NL.brachialPlexus,
+      NL.aorticThromboembolism,
     ];
 
     nlObjects.sort((a, b) => b.point.compareTo(a.point));
