@@ -169,10 +169,10 @@ Widget build(BuildContext context) {
               var initializers = OptionInterpreter.interpret(controller.allSelectedOptions);
               OptionOperator operator = OptionOperator();
               operator.initializeOptions(initializers);
-              AbstractNL maxPointNL = NLCalculate.findMaxPointNL();
+              List<AbstractNL> topNLs = NLCalculate.findTopThreeNLs();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => ResultPage(maxPointNL: maxPointNL),
+                  builder: (context) => ResultPage(topNLs: topNLs),
                 ),
               );
             },

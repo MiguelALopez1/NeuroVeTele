@@ -2,7 +2,7 @@ import 'abstract_nl.dart';
 import 'nl.dart';
 
 class NLCalculate {
-  static AbstractNL findMaxPointNL() {
+  static List<AbstractNL> findTopThreeNLs() {
     List<AbstractNL> nlObjects = [
       NL.normalExam,
       NL.forebrain,
@@ -39,8 +39,8 @@ class NLCalculate {
       NL.lameness,
     ];
 
-    nlObjects.sort((a, b) => a.point.compareTo(b.point));
+    nlObjects.sort((a, b) => b.point.compareTo(a.point));
 
-    return nlObjects.last;
+    return nlObjects.take(3).toList();
   }
 }
