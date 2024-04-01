@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'general_page_controller.dart';
+import 'option_interpreter.dart';
+import 'option_operator.dart';
+import 'abstract_nl.dart';
+import 'nl_calculate.dart';
+import 'result_page.dart';
+
 
 class GeneralPage extends StatefulWidget {
   @override
@@ -157,6 +163,20 @@ Widget build(BuildContext context) {
             allOptions: allInvoluntaryMovementsOptions,
             selectedOptions: controller.data.selectedInvoluntaryMovementsOptions,
             updateFunction: controller.updateInvoluntaryMovementsOptions,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              var initializers = OptionInterpreter.interpret(controller.allSelectedOptions);
+              OptionOperator operator = OptionOperator();
+              operator.initializeOptions(initializers);
+              AbstractNL maxPointNL = NLCalculate.findMaxPointNL();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(maxPointNL: maxPointNL),
+                ),
+              );
+            },
+            child: Text('Neurolocalize'),
           ),
         ],
       ),

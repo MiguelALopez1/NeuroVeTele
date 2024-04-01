@@ -4,30 +4,23 @@ abstract class AbstractOption {
   final String name;
   static const int maxPoint = 999999;
   static const int minPoint = -999999;
-  int pointTotal = 0;
 
   AbstractOption(this.name);
 
   void add(AbstractNL nlObject, int value) {
-    pointTotal += value;
-    int potentialPoint = pointTotal + value;
+    nlObject.point += value;
   }
 
   void sub(AbstractNL nlObject, int value) {
-    pointTotal -= value;
-    int potentialPoint = pointTotal - value;
+    nlObject.point -= value;
   }
 
   void isGuaranteed(AbstractNL nlObject) {
-    pointTotal = maxPoint;
+    nlObject.point = maxPoint;
   }
 
   void isNever(AbstractNL nlObject) {
-    pointTotal = minPoint;
-  }
-
-  void setPoints(AbstractNL nlObject) {
-    nlObject.point = pointTotal;
+    nlObject.point = minPoint;
   }
 
 }

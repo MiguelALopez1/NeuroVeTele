@@ -34,6 +34,7 @@
     static final AbstractNL s1S3 = AbstractFactory.createNL("S1-S3");
     static final AbstractNL nerveRootSignature = AbstractFactory.createNL("Nerve Root Signature");
     static final AbstractNL orthopedic = AbstractFactory.createNL("Orthopedic");
+    static final AbstractNL lameness = AbstractFactory.createNL("Lameness");
 
     NL._();
 }

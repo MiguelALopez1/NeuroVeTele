@@ -4,3 +4,4 @@ abstract class AbstractNL {
 
   AbstractNL(this.name, [this.point = 0]);
 }
+
