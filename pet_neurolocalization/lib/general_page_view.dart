@@ -27,8 +27,8 @@ class GeneralPageView extends State<GeneralPage> {
   ];
 
   final List<String> allPostureOptions = [
-    "Normal Posture", "Head Tilt", "Head Turn", "Torticollis", "Neck Guarded",
-    "Archer Posture", "Holding Up Limb", "Latterally Recumbent", "Decerebrate", 
+    "Normal Posture", "Head Tilt - Right", "Head Tilt - Left", "Head Turn - Right", "Head Turn - Left", 
+    "Torticollis", "Neck Guarded", "Archer Posture", "Holding Up Limb", "Latterally Recumbent", "Decerebrate", 
     "Decerebellate", "Opisthotonos", "Schiff-Sherrington","Kyphosis", "Scoliosis", 
     "Diffuse Rigidity", "Risus Sardonicus", "Diffuse Flaccidity", 
     "Spastic - Thoracic Limbs", "Spastic - Pelvic Limbs", "Spastic - All Limbs",
@@ -169,10 +169,10 @@ Widget build(BuildContext context) {
               var initializers = OptionInterpreter.interpret(controller.allSelectedOptions);
               OptionOperator operator = OptionOperator();
               operator.initializeOptions(initializers);
-              AbstractNL maxPointNL = NLCalculate.findMaxPointNL();
+              List<AbstractNL> topNLs = NLCalculate.findTopThreeNLs();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => ResultPage(maxPointNL: maxPointNL),
+                  builder: (context) => ResultPage(topNLs: topNLs),
                 ),
               );
             },
