@@ -8,9 +8,8 @@ abstract class AbstractOption {
 
   AbstractOption(this.name);
 
-  void add(AbstractNL nlObject, int value) {
-    pointTotal += value;
-    int potentialPoint = pointTotal + value;
+  void add(AbstractNL abstractNl, int points) {
+    abstractNl.updatePoints(points); // Adds points
   }
 
   void sub(AbstractNL nlObject, int value) {

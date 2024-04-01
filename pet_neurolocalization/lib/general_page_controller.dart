@@ -1,4 +1,5 @@
 import 'general_page_model.dart'; 
+import 'nl.dart';
 
 class GeneralPageController {
   GeneralPageModel data = GeneralPageModel();
@@ -16,6 +17,7 @@ class GeneralPageController {
 
   void updateBehaviorOptions(List<String> options) {
     data.selectedBehaviorOptions = options;
+  
   }
 
   void updateMentationOptions(List<String> options) {
@@ -53,6 +55,30 @@ class GeneralPageController {
   List<String> get selectedInvoluntaryMovementsOptions {
     return data.selectedInvoluntaryMovementsOptions;
   }
+
+  void printAllSelectedOptions() {
+    print('Behavior Options: ${data.selectedBehaviorOptions.join(', ')}');
+    print('Mentation Options: ${data.selectedMentationOptions.join(', ')}');
+    print('Posture Options: ${data.selectedPostureOptions.join(', ')}');
+    print('Gait Options: ${data.selectedGaitOptions.join(', ')}');
+    print('Involuntary Movements Options: ${data.selectedInvoluntaryMovementsOptions.join(', ')}');
+  }
+
+  void neuroPoints(){
+    if (data.selectedBehaviorOptions.contains("Normal")) {
+      
+      NL.normalExam.updatePoints(5);
+      NL.forebrain.updatePoints(6);
+      NL.rightForebrain.updatePoints(7);
+      NL.leftForebrain.updatePoints(8);
+      NL.systemicIllness.updatePoints(9);
+      NL.behavioral.updatePoints(10);
+      NL.caudaEquina.updatePoints(11);
+    }
+
+    NL.printTopFiveNL();
+  }
+
 
 }
 

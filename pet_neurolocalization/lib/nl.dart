@@ -36,4 +36,47 @@
     static final AbstractNL orthopedic = AbstractFactory.createNL("Orthopedic");
 
     NL._();
+
+    static void _quickSort(List<AbstractNL> list, int low, int high) {
+    if (low < high) {
+      int pi = _partition(list, low, high);
+      _quickSort(list, low, pi - 1);
+      _quickSort(list, pi + 1, high);
+    }
+  }
+
+  static int _partition(List<AbstractNL> list, int low, int high) {
+    var pivot = list[high].point;
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+      if (list[j].point > pivot) { // Using '>' for descending order sort
+        i++;
+        var temp = list[i];
+        list[i] = list[j];
+        list[j] = temp;
+      }
+    }
+    var temp = list[i + 1];
+    list[i + 1] = list[high];
+    list[high] = temp;
+    return i + 1;
+  }
+
+  static void printTopFiveNL() {
+    var list = [
+      // Populate this list with your AbstractNL instances
+      normalExam, forebrain, rightForebrain, leftForebrain, intracranial,
+      cerebellum, neuromuscular, openEtiology, c1C5Myelopathy, c6T2Myelopathy,
+      t3L3Myelopathy, l4S3Myelopathy, motorUnit, systemicIllness,
+      nonSpecificPain, myopathy, peripheralNeuropathy, cervicalPain,
+      centralCordSyndrome, vestibular, rightPeripheralVestibular,
+      rightCentralVestibular, leftPeripheralVestibular, leftCentralVestibular,
+      rightCerebellumParadoxical, leftCerebellumParadoxical, behavioral,
+      brainstem, caudaEquina, s1S3, nerveRootSignature, orthopedic
+    ];
+    _quickSort(list, 0, list.length - 1);
+    for (int i = 0; i < list.length && i < 5; i++) {
+      print('${list[i].name}: ${list[i].point}');
+    }
+  }
 }

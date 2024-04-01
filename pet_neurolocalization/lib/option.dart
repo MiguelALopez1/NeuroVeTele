@@ -281,6 +281,8 @@
       compulsiveWalking.add(NL.behavioral, 45);
       compulsiveWalking.add(NL.intracranial, 40);
 
+      print("hi");
+
   }
   static final _initializer = _initialize();
 }

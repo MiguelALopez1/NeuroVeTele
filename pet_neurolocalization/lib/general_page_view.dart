@@ -158,6 +158,22 @@ Widget build(BuildContext context) {
             selectedOptions: controller.data.selectedInvoluntaryMovementsOptions,
             updateFunction: controller.updateInvoluntaryMovementsOptions,
           ),
+          Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: ElevatedButton(
+                    onPressed: () => controller.neuroPoints(),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue, // Button color
+                      foregroundColor: Colors.white, // Text color
+                    ),
+                    child: Text('Neurolocalize'),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     ),
