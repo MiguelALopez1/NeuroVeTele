@@ -21,7 +21,7 @@ class GeneralPageView extends State<GeneralPage> {
   ];
 
   final List<String> allPostureOptions = [
-    "Normal Posture", "Head Tilt", "Head Turn", "Torticollis", "Neck Guarded",
+    "Normal Posture", "Head Tilt - Left", "Head Tilt - Right", "Head Turn - Left", "Head Turn - Right", "Torticollis", "Neck Guarded",
     "Archer Posture", "Holding Up Limb", "Latterally Recumbent", "Decerebrate", 
     "Decerebellate", "Opisthotonos", "Schiff-Sherrington","Kyphosis", "Scoliosis", 
     "Diffuse Rigidity", "Risus Sardonicus", "Diffuse Flaccidity", 
