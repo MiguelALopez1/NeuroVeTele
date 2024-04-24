@@ -1,4 +1,5 @@
   import 'abstract_factory.dart';
+  import 'dashboard_globals.dart';
   import 'abstract_option.dart';
   import 'nl.dart';
 
@@ -110,824 +111,753 @@
     static final AbstractOption neuroMyotonia = AbstractFactory.createOption("(Neuro) Myotonia");
     static final AbstractOption narcolepsy = AbstractFactory.createOption("Narcolepsy");
     static final AbstractOption headSwaying = AbstractFactory.createOption("Head Swaying");
-
-  // Behavior
+    
+   // Behavior
   static void initializeNormal() {
-      normal.add(NL.normalExam, 5);
-      normal.sub(NL.rightForebrain, 40);
-      normal.sub(NL.leftForebrain, 40);
-      normal.sub(NL.behavioral, 45);
-      normal.sub(NL.intracranial, 40);
+      normal.add(NL.normalExam, normalNormalExam);
+      normal.sub(NL.rightForebrain, normalRightForebrain);
+      normal.sub(NL.leftForebrain, normalLeftForebrain);
+      normal.sub(NL.behavioral, normalBehavioral);
+      normal.sub(NL.intracranial, normalIntercranial);
   }
 
   static void initializeQuiet() {
-      quiet.add(NL.normalExam, 5);
+      quiet.add(NL.normalExam, quietNormalExam);
   }
 
   static void initializeFearful() {
-      fearful.add(NL.forebrain, 5);
-      fearful.add(NL.rightForebrain, 5);
-      fearful.add(NL.leftForebrain, 5);
-      fearful.add(NL.behavioral, 20);
-      fearful.add(NL.systemicIllness, 5);
-      fearful.add(NL.intracranial, 15);
-      fearful.add(NL.nonSpecificPain, 10);
-      fearful.add(NL.openEtiology, 10);
-      fearful.add(NL.cervicalPain, 5);
+      fearful.add(NL.forebrain, fearfulForebrain);
+      fearful.add(NL.rightForebrain, fearfulRightForebrain);
+      fearful.add(NL.leftForebrain, fearfulLeftForebrain);
+      fearful.add(NL.behavioral, fearfulBehavioral);
+      fearful.add(NL.systemicIllness, fearfulSystemicIllness);
+      fearful.add(NL.intracranial, fearfulIntracranial);
+      fearful.add(NL.nonSpecificPain, fearfulNonSpecificPain);
+      fearful.add(NL.openEtiology, fearfulOpenEtiology);
+      fearful.add(NL.cervicalPain, fearfulCervicalPain);
   }
-
   static void initializeWithdrawn() {
-      withdrawn.add(NL.forebrain, 5);
-      withdrawn.add(NL.rightForebrain, 5);
-      withdrawn.add(NL.leftForebrain, 5);
-      withdrawn.add(NL.behavioral, 20);
-      withdrawn.add(NL.systemicIllness, 5);
-      withdrawn.add(NL.intracranial, 15);
-      withdrawn.add(NL.nonSpecificPain, 10);
-      withdrawn.add(NL.openEtiology, 10);
-      withdrawn.add(NL.cervicalPain, 5);
-  }
+    withdrawn.add(NL.forebrain, withdrawnForebrain);
+    withdrawn.add(NL.rightForebrain, withdrawnRightForebrain);
+    withdrawn.add(NL.leftForebrain, withdrawnLeftForebrain);
+    withdrawn.add(NL.behavioral, withdrawnBehavioral);
+    withdrawn.add(NL.systemicIllness, withdrawnSystemicIllness);
+    withdrawn.add(NL.intracranial, withdrawnIntracranial);
+    withdrawn.add(NL.nonSpecificPain, withdrawnNonSpecificPain);
+    withdrawn.add(NL.openEtiology, withdrawnOpenEtiology);
+    withdrawn.add(NL.cervicalPain, withdrawnCervicalPain);
+}
 
-  static void initializeAggressive() {
-      aggressive.add(NL.forebrain, 5);
-      aggressive.add(NL.rightForebrain, 5);
-      aggressive.add(NL.leftForebrain, 5);
-      aggressive.add(NL.behavioral, 20);
-      aggressive.add(NL.systemicIllness, 5);
-      aggressive.add(NL.intracranial, 15);
-      aggressive.add(NL.nonSpecificPain, 10);
-      aggressive.add(NL.openEtiology, 10);
-      aggressive.add(NL.cervicalPain, 5);
-  }
 
-  static void initializeDisoriented() {
-      disoriented.add(NL.forebrain, 5);
-      disoriented.add(NL.rightForebrain, 5);
-      disoriented.add(NL.leftForebrain, 5);
-      disoriented.add(NL.vestibular, 10);
-      disoriented.add(NL.rightPeripheralVestibular, 10);
-      disoriented.add(NL.rightCentralVestibular, 10);
-      disoriented.add(NL.leftPeripheralVestibular, 10);
-      disoriented.add(NL.leftCentralVestibular, 10);
-      disoriented.add(NL.cerebellum, 8);
-      disoriented.add(NL.rightCerebellumParadoxical, 10);
-      disoriented.add(NL.leftCerebellumParadoxical, 10);
-      disoriented.add(NL.behavioral, 10);
-      disoriented.add(NL.systemicIllness, 5);
-      disoriented.add(NL.intracranial, 10);
-      disoriented.add(NL.openEtiology, 10);
-  }
+ static void initializeAggressive() {
+    aggressive.add(NL.forebrain, aggressiveForebrain);
+    aggressive.add(NL.rightForebrain, aggressiveRightForebrain);
+    aggressive.add(NL.leftForebrain, aggressiveLeftForebrain);
+    aggressive.add(NL.behavioral, aggressiveBehavioral);
+    aggressive.add(NL.systemicIllness, aggressiveSystemicIllness);
+    aggressive.add(NL.intracranial, aggressiveIntracranial);
+    aggressive.add(NL.nonSpecificPain, aggressiveNonSpecificPain);
+    aggressive.add(NL.openEtiology, aggressiveOpenEtiology);
+    aggressive.add(NL.cervicalPain, aggressiveCervicalPain);
+}
 
-  static void initializeDemented() {
-      demented.add(NL.forebrain, 25);
-      demented.add(NL.rightForebrain, 20);
-      demented.add(NL.leftForebrain, 20);
-      demented.add(NL.behavioral, 15);
-      demented.add(NL.intracranial, 25);
-      demented.add(NL.openEtiology, 25);
-  }
+static void initializeDisoriented() {
+    disoriented.add(NL.forebrain, disorientedForebrain);
+    disoriented.add(NL.rightForebrain, disorientedRightForebrain);
+    disoriented.add(NL.leftForebrain, disorientedLeftForebrain);
+    disoriented.add(NL.vestibular, disorientedVestibular);
+    disoriented.add(NL.rightPeripheralVestibular, disorientedRightPeripheralVestibular);
+    disoriented.add(NL.rightCentralVestibular, disorientedRightCentralVestibular);
+    disoriented.add(NL.leftPeripheralVestibular, disorientedLeftPeripheralVestibular);
+    disoriented.add(NL.leftCentralVestibular, disorientedLeftCentralVestibular);
+    disoriented.add(NL.cerebellum, disorientedCerebellum);
+    disoriented.add(NL.rightCerebellumParadoxical, disorientedRightCerebellumParadoxical);
+    disoriented.add(NL.leftCerebellumParadoxical, disorientedLeftCerebellumParadoxical);
+    disoriented.add(NL.behavioral, disorientedBehavioral);
+    disoriented.add(NL.systemicIllness, disorientedSystemicIllness);
+    disoriented.add(NL.intracranial, disorientedIntracranial);
+    disoriented.add(NL.openEtiology, disorientedOpenEtiology);
+}
 
-  static void initializeSleepWakeCycleChange() {
-      sleepWakeCycleChange.add(NL.forebrain, 25);
-      sleepWakeCycleChange.add(NL.rightForebrain, 20);
-      sleepWakeCycleChange.add(NL.leftForebrain, 20);
-      sleepWakeCycleChange.add(NL.behavioral, 15);
-      sleepWakeCycleChange.add(NL.intracranial, 25);
-      sleepWakeCycleChange.add(NL.openEtiology, 25);
-  }
+static void initializeDemented() {
+    demented.add(NL.forebrain, dementedForebrain);
+    demented.add(NL.rightForebrain, dementedRightForebrain);
+    demented.add(NL.leftForebrain, dementedLeftForebrain);
+    demented.add(NL.behavioral, dementedBehavioral);
+    demented.add(NL.intracranial, dementedIntracranial);
+    demented.add(NL.openEtiology, dementedOpenEtiology);
+}
 
-  static void initializeVoidingInHouse() {
-      voidingInHouse.add(NL.forebrain, 15);
-      voidingInHouse.add(NL.rightForebrain, 12);
-      voidingInHouse.add(NL.leftForebrain, 12);
-      voidingInHouse.add(NL.c1C5Myelopathy, 10);
-      voidingInHouse.add(NL.t3L3Myelopathy, 15);
-      voidingInHouse.add(NL.l4S3Myelopathy, 15);
-      voidingInHouse.add(NL.caudaEquina, 15);
-      voidingInHouse.add(NL.s1S3, 16);
-      voidingInHouse.add(NL.behavioral, 15);
-      voidingInHouse.add(NL.intracranial, 16);
-      voidingInHouse.add(NL.nonSpecificPain, 12);
-      voidingInHouse.add(NL.openEtiology, 20);
-  }
+static void initializeSleepWakeCycleChange() {
+    sleepWakeCycleChange.add(NL.forebrain, sleepWakeCycleChangeForebrain);
+    sleepWakeCycleChange.add(NL.rightForebrain, sleepWakeCycleChangeRightForebrain);
+    sleepWakeCycleChange.add(NL.leftForebrain, sleepWakeCycleChangeLeftForebrain);
+    sleepWakeCycleChange.add(NL.behavioral, sleepWakeCycleChangeBehavioral);
+    sleepWakeCycleChange.add(NL.intracranial, sleepWakeCycleChangeIntracranial);
+    sleepWakeCycleChange.add(NL.openEtiology, sleepWakeCycleChangeOpenEtiology);
+}
 
-  static void initializeLossOfTrainBehavior() {
-      lossOfTrainBehavior.add(NL.forebrain, 25);
-      lossOfTrainBehavior.add(NL.rightForebrain, 20);
-      lossOfTrainBehavior.add(NL.leftForebrain, 20);
-      lossOfTrainBehavior.add(NL.behavioral, 20);
-      lossOfTrainBehavior.add(NL.intracranial, 25);
-      lossOfTrainBehavior.add(NL.openEtiology, 25);
-  }
+static void initializeVoidingInHouse() {
+    voidingInHouse.add(NL.forebrain, voidingInHouseForebrain);
+    voidingInHouse.add(NL.rightForebrain, voidingInHouseRightForebrain);
+    voidingInHouse.add(NL.leftForebrain, voidingInHouseLeftForebrain);
+    voidingInHouse.add(NL.c1C5Myelopathy, voidingInHouseC1C5Myelopathy);
+    voidingInHouse.add(NL.t3L3Myelopathy, voidingInHouseT3L3Myelopathy);
+    voidingInHouse.add(NL.l4S3Myelopathy, voidingInHouseL4S3Myelopathy);
+    voidingInHouse.add(NL.caudaEquina, voidingInHouseCaudaEquina);
+    voidingInHouse.add(NL.s1S3, voidingInHouseS1S3);
+    voidingInHouse.add(NL.behavioral, voidingInHouseBehavioral);
+    voidingInHouse.add(NL.intracranial, voidingInHouseIntracranial);
+    voidingInHouse.add(NL.nonSpecificPain, voidingInHouseNonSpecificPain);
+    voidingInHouse.add(NL.openEtiology, voidingInHouseOpenEtiology);
+}
 
-  static void initializeCirclingRight() {
-      circlingRight.add(NL.forebrain, 35);
-      circlingRight.add(NL.rightForebrain, 60);
-      circlingRight.add(NL.brainstem, 25);
-      circlingRight.add(NL.vestibular, 35);
-      circlingRight.add(NL.rightPeripheralVestibular, 50);
-      circlingRight.add(NL.rightCentralVestibular, 50);
-      circlingRight.add(NL.leftCerebellumParadoxical, 45);
-      circlingRight.add(NL.intracranial, 35);
-  }
+static void initializeLossOfTrainBehavior() {
+    lossOfTrainBehavior.add(NL.forebrain, lossOfTrainBehaviorForebrain);
+    lossOfTrainBehavior.add(NL.rightForebrain, lossOfTrainBehaviorRightForebrain);
+    lossOfTrainBehavior.add(NL.leftForebrain, lossOfTrainBehaviorLeftForebrain);
+    lossOfTrainBehavior.add(NL.behavioral, lossOfTrainBehaviorBehavioral);
+    lossOfTrainBehavior.add(NL.intracranial, lossOfTrainBehaviorIntracranial);
+    lossOfTrainBehavior.add(NL.openEtiology, lossOfTrainBehaviorOpenEtiology);
+}
 
-  static void initializeCirclingLeft() {
-      circlingLeft.add(NL.forebrain, 35);
-      circlingLeft.add(NL.leftForebrain, 60);
-      circlingLeft.add(NL.brainstem, 25);
-      circlingLeft.add(NL.vestibular, 35);
-      circlingLeft.add(NL.leftPeripheralVestibular, 50);
-      circlingLeft.add(NL.leftCentralVestibular, 50);
-      circlingLeft.add(NL.rightCerebellumParadoxical, 45);
-      circlingLeft.add(NL.intracranial, 35);
-  }
+static void initializeCirclingRight() {
+    circlingRight.add(NL.forebrain, circlingRightForebrain);
+    circlingRight.add(NL.rightForebrain, circlingRightRightForebrain);
+    circlingRight.add(NL.brainstem, circlingRightBrainstem);
+    circlingRight.add(NL.vestibular, circlingRightVestibular);
+    circlingRight.add(NL.rightPeripheralVestibular, circlingRightRightPeripheralVestibular);
+    circlingRight.add(NL.rightCentralVestibular, circlingRightRightCentralVestibular);
+    circlingRight.add(NL.leftCerebellumParadoxical, circlingRightLeftCerebellumParadoxical);
+    circlingRight.add(NL.intracranial, circlingRightIntracranial);
+}
 
-  static void initializeCirclingBoth() {
-      circlingBoth.add(NL.forebrain, 50);
-      circlingBoth.add(NL.intracranial, 45);
-      circlingBoth.add(NL.behavioral, 45);
-  }
+static void initializeCirclingLeft() {
+    circlingLeft.add(NL.forebrain, circlingLeftForebrain);
+    circlingLeft.add(NL.leftForebrain, circlingLeftLeftForebrain);
+    circlingLeft.add(NL.brainstem, circlingLeftBrainstem);
+    circlingLeft.add(NL.vestibular, circlingLeftVestibular);
+    circlingLeft.add(NL.leftPeripheralVestibular, circlingLeftLeftPeripheralVestibular);
+    circlingLeft.add(NL.leftCentralVestibular, circlingLeftLeftCentralVestibular);
+    circlingLeft.add(NL.rightCerebellumParadoxical, circlingLeftRightCerebellumParadoxical);
+    circlingLeft.add(NL.intracranial, circlingLeftIntracranial);
+}
 
-  static void initializeCompulsiveWalking() {
-      compulsiveWalking.add(NL.forebrain, 50);
-      compulsiveWalking.add(NL.rightForebrain, 40);
-      compulsiveWalking.add(NL.leftForebrain, 40);
-      compulsiveWalking.add(NL.behavioral, 45);
-      compulsiveWalking.add(NL.intracranial, 40);
-  }
+static void initializeCirclingBoth() {
+    circlingBoth.add(NL.forebrain, circlingBothForebrain);
+    circlingBoth.add(NL.intracranial, circlingBothIntracranial);
+    circlingBoth.add(NL.behavioral, circlingBothBehavioral);
+}
 
-  static void initializeHeadPressing() {
-      headPressing.add(NL.forebrain, 50);
-      headPressing.add(NL.rightForebrain, 45);
-      headPressing.add(NL.leftForebrain, 45);
-      headPressing.add(NL.intracranial, 40);
-  }
+static void initializeCompulsiveWalking() {
+    compulsiveWalking.add(NL.forebrain, compulsiveWalkingForebrain);
+    compulsiveWalking.add(NL.rightForebrain, compulsiveWalkingRightForebrain);
+    compulsiveWalking.add(NL.leftForebrain, compulsiveWalkingLeftForebrain);
+    compulsiveWalking.add(NL.behavioral, compulsiveWalkingBehavioral);
+    compulsiveWalking.add(NL.intracranial, compulsiveWalkingIntracranial);
+}
 
-  static void initializeOther() {
-      other.add(NL.behavioral, 100);
-      other.add(NL.forebrain, 15);
-      other.add(NL.rightForebrain, 15);
-      other.add(NL.leftForebrain, 15);
-      other.add(NL.systemicIllness, 20);
-      other.add(NL.intracranial, 25);
-      other.add(NL.openEtiology, 10);
-  }
+static void initializeHeadPressing() {
+    headPressing.add(NL.forebrain, headPressingForebrain);
+    headPressing.add(NL.rightForebrain, headPressingRightForebrain);
+    headPressing.add(NL.leftForebrain, headPressingLeftForebrain);
+    headPressing.add(NL.intracranial, headPressingIntracranial);
+}
 
-  // Involuntary Movements
-  static void initializeNone() {
-      none.add(NL.normalExam, 5);
-  }
+static void initializeOther() {
+    other.add(NL.behavioral, otherBehavioral);
+    other.add(NL.forebrain, otherForebrain);
+    other.add(NL.rightForebrain, otherRightForebrain);
+    other.add(NL.leftForebrain, otherLeftForebrain);
+    other.add(NL.systemicIllness, otherSystemicIllness);
+    other.add(NL.intracranial, otherIntracranial);
+    other.add(NL.openEtiology, otherOpenEtiology);
+}
 
-  static void initializeSeizuresFocal() {
-      seizuresFocal.add(NL.forebrain, 100);
-      seizuresFocal.add(NL.rightForebrain, 60);
-      seizuresFocal.add(NL.leftForebrain, 60);
-      seizuresFocal.add(NL.intracranial, 10);
-  }
+static void initializeNone() {
+    none.add(NL.normalExam, noneNormalExam);
+}
 
-  static void initializeSeizuresGeneralized() {
-      seizuresGeneralized.add(NL.forebrain, 100);
-      seizuresGeneralized.add(NL.rightForebrain, 60);
-      seizuresGeneralized.add(NL.leftForebrain, 60);
-      seizuresGeneralized.add(NL.intracranial, 10);
-  }
+static void initializeSeizuresFocal() {
+    seizuresFocal.add(NL.forebrain, seizuresFocalForebrain);
+    seizuresFocal.add(NL.rightForebrain, seizuresFocalRightForebrain);
+    seizuresFocal.add(NL.leftForebrain, seizuresFocalLeftForebrain);
+    seizuresFocal.add(NL.intracranial, seizuresFocalIntracranial);
+}
 
-  static void initializeTremorsActionRelated() {
-      tremorsActionRelated.add(NL.cerebellum, 50);
-      tremorsActionRelated.add(NL.neuromuscular, 48);
-      tremorsActionRelated.add(NL.intracranial, 10);
-      tremorsActionRelated.add(NL.openEtiology, 49);
-  }
+static void initializeSeizuresGeneralized() {
+    seizuresGeneralized.add(NL.forebrain, seizuresGeneralizedForebrain);
+    seizuresGeneralized.add(NL.rightForebrain, seizuresGeneralizedRightForebrain);
+    seizuresGeneralized.add(NL.leftForebrain, seizuresGeneralizedLeftForebrain);
+    seizuresGeneralized.add(NL.intracranial, seizuresGeneralizedIntracranial);
+}
 
-  static void initializeTremorsConstant() {
-      tremorsConstant.add(NL.cerebellum, 50);
-      tremorsConstant.add(NL.neuromuscular, 48);
-      tremorsConstant.add(NL.intracranial, 10);
-      tremorsConstant.add(NL.openEtiology, 49);
-  }
+static void initializeTremorsActionRelated() {
+    tremorsActionRelated.add(NL.cerebellum, tremorsActionRelatedCerebellum);
+    tremorsActionRelated.add(NL.neuromuscular, tremorsActionRelatedNeuromuscular);
+    tremorsActionRelated.add(NL.intracranial, tremorsActionRelatedIntracranial);
+    tremorsActionRelated.add(NL.openEtiology, tremorsActionRelatedOpenEtiology);
+}
 
-  static void initializeTremorsEpisodic() {
-      tremorsEpisodic.add(NL.forebrain, 20);
-      tremorsEpisodic.add(NL.rightForebrain, 18);
-      tremorsEpisodic.add(NL.leftForebrain, 18);
-      tremorsEpisodic.add(NL.intracranial, 20);
-      tremorsEpisodic.add(NL.openEtiology, 50);
-  }
+static void initializeTremorsConstant() {
+    tremorsConstant.add(NL.cerebellum, tremorsConstantCerebellum);
+    tremorsConstant.add(NL.neuromuscular, tremorsConstantNeuromuscular);
+    tremorsConstant.add(NL.intracranial, tremorsConstantIntracranial);
+    tremorsConstant.add(NL.openEtiology, tremorsConstantOpenEtiology);
+}
 
-  static void initializeTremorsWhenStanding() {
-      tremorsWhenStanding.add(NL.cerebellum, 9);
-      tremorsWhenStanding.add(NL.c1C5Myelopathy, 10);
-      tremorsWhenStanding.add(NL.c6T2Myelopathy, 10);
-      tremorsWhenStanding.add(NL.t3L3Myelopathy, 10);
-      tremorsWhenStanding.add(NL.l4S3Myelopathy, 10);
-      tremorsWhenStanding.add(NL.motorUnit, 10);
-      tremorsWhenStanding.add(NL.neuromuscular, 10);
-      tremorsWhenStanding.add(NL.systemicIllness, 10);
-      tremorsWhenStanding.add(NL.intracranial, 10);
-      tremorsWhenStanding.add(NL.nonSpecificPain, 10);
-      tremorsWhenStanding.add(NL.myopathy, 10);
-      tremorsWhenStanding.add(NL.peripheralNeuropathy, 10);
-      tremorsWhenStanding.add(NL.openEtiology, 10);
-      tremorsWhenStanding.add(NL.cervicalPain, 10);
-  }
+static void initializeTremorsEpisodic() {
+    tremorsEpisodic.add(NL.forebrain, tremorsEpisodicForebrain);
+    tremorsEpisodic.add(NL.rightForebrain, tremorsEpisodicRightForebrain);
+    tremorsEpisodic.add(NL.leftForebrain, tremorsEpisodicLeftForebrain);
+    tremorsEpisodic.add(NL.intracranial, tremorsEpisodicIntracranial);
+    tremorsEpisodic.add(NL.openEtiology, tremorsEpisodicOpenEtiology);
+}
 
-  static void initializeParoxysmalEvent() {
-      paroxysmalEvent.add(NL.forebrain, 20);
-      paroxysmalEvent.add(NL.rightForebrain, 18);
-      paroxysmalEvent.add(NL.leftForebrain, 18);
-      paroxysmalEvent.add(NL.intracranial, 20);
-      paroxysmalEvent.add(NL.openEtiology, 50);
-  }
 
-  static void initializeMyoclonusCervical() {
-    myoclonusCervical.add(NL.c1C5Myelopathy, 20);
-    myoclonusCervical.add(NL.c6T2Myelopathy, 15);
-    myoclonusCervical.add(NL.centralCordSyndrome, 5);
-    myoclonusCervical.add(NL.systemicIllness, 2);
-    myoclonusCervical.add(NL.intracranial, 10);
-    myoclonusCervical.add(NL.nonSpecificPain, 20);
-    myoclonusCervical.add(NL.openEtiology, 20);
-    myoclonusCervical.add(NL.cervicalPain, 25);
+ static void initializeTremorsWhenStanding() {
+    tremorsWhenStanding.add(NL.cerebellum, tremorsWhenStandingCerebellum);
+    tremorsWhenStanding.add(NL.c1C5Myelopathy, tremorsWhenStandingC1C5Myelopathy);
+    tremorsWhenStanding.add(NL.c6T2Myelopathy, tremorsWhenStandingC6T2Myelopathy);
+    tremorsWhenStanding.add(NL.t3L3Myelopathy, tremorsWhenStandingT3L3Myelopathy);
+    tremorsWhenStanding.add(NL.l4S3Myelopathy, tremorsWhenStandingL4S3Myelopathy);
+    tremorsWhenStanding.add(NL.motorUnit, tremorsWhenStandingMotorUnit);
+    tremorsWhenStanding.add(NL.neuromuscular, tremorsWhenStandingNeuromuscular);
+    tremorsWhenStanding.add(NL.systemicIllness, tremorsWhenStandingSystemicIllness);
+    tremorsWhenStanding.add(NL.intracranial, tremorsWhenStandingIntracranial);
+    tremorsWhenStanding.add(NL.nonSpecificPain, tremorsWhenStandingNonSpecificPain);
+    tremorsWhenStanding.add(NL.myopathy, tremorsWhenStandingMyopathy);
+    tremorsWhenStanding.add(NL.peripheralNeuropathy, tremorsWhenStandingPeripheralNeuropathy);
+    tremorsWhenStanding.add(NL.openEtiology, tremorsWhenStandingOpenEtiology);
+    tremorsWhenStanding.add(NL.cervicalPain, tremorsWhenStandingCervicalPain);
+}
+
+static void initializeParoxysmalEvent() {
+    paroxysmalEvent.add(NL.forebrain, paroxysmalEventForebrain);
+    paroxysmalEvent.add(NL.rightForebrain, paroxysmalEventRightForebrain);
+    paroxysmalEvent.add(NL.leftForebrain, paroxysmalEventLeftForebrain);
+    paroxysmalEvent.add(NL.intracranial, paroxysmalEventIntracranial);
+    paroxysmalEvent.add(NL.openEtiology, paroxysmalEventOpenEtiology);
+}
+
+static void initializeMyoclonusCervical() {
+    myoclonusCervical.add(NL.c1C5Myelopathy, myoclonusCervicalC1C5Myelopathy);
+    myoclonusCervical.add(NL.c6T2Myelopathy, myoclonusCervicalC6T2Myelopathy);
+    myoclonusCervical.add(NL.centralCordSyndrome, myoclonusCervicalCentralCordSyndrome);
+    myoclonusCervical.add(NL.systemicIllness, myoclonusCervicalSystemicIllness);
+    myoclonusCervical.add(NL.intracranial, myoclonusCervicalIntracranial);
+    myoclonusCervical.add(NL.nonSpecificPain, myoclonusCervicalNonSpecificPain);
+    myoclonusCervical.add(NL.openEtiology, myoclonusCervicalOpenEtiology);
+    myoclonusCervical.add(NL.cervicalPain, myoclonusCervicalCervicalPain);
 }
 
 static void initializeMyoclonusConstant() {
-    myoclonusConstant.add(NL.intracranial, 49);
-    myoclonusConstant.add(NL.openEtiology, 50);
+    myoclonusConstant.add(NL.intracranial, myoclonusConstantIntracranial);
+    myoclonusConstant.add(NL.openEtiology, myoclonusConstantOpenEtiology);
 }
 
 static void initializeMyoclonusEpisodic() {
-    myoclonusEpisodic.add(NL.forebrain, 20);
-    myoclonusEpisodic.add(NL.rightForebrain, 18);
-    myoclonusEpisodic.add(NL.leftForebrain, 18);
-    myoclonusEpisodic.add(NL.systemicIllness, 15);
-    myoclonusEpisodic.add(NL.intracranial, 22);
-    myoclonusEpisodic.add(NL.openEtiology, 23);
+    myoclonusEpisodic.add(NL.forebrain, myoclonusEpisodicForebrain);
+    myoclonusEpisodic.add(NL.rightForebrain, myoclonusEpisodicRightForebrain);
+    myoclonusEpisodic.add(NL.leftForebrain, myoclonusEpisodicLeftForebrain);
+    myoclonusEpisodic.add(NL.systemicIllness, myoclonusEpisodicSystemicIllness);
+    myoclonusEpisodic.add(NL.intracranial, myoclonusEpisodicIntracranial);
+    myoclonusEpisodic.add(NL.openEtiology, myoclonusEpisodicOpenEtiology);
 }
 
 static void initializeMyokymia() {
-    myokymia.add(NL.neuromuscular, 15);
-    myokymia.add(NL.systemicIllness, 20);
-    myokymia.add(NL.peripheralNeuropathy, 50);
-    myokymia.add(NL.openEtiology, 50);
+    myokymia.add(NL.neuromuscular, myokymiaNeuromuscular);
+    myokymia.add(NL.systemicIllness, myokymiaSystemicIllness);
+    myokymia.add(NL.peripheralNeuropathy, myokymiaPeripheralNeuropathy);
+    myokymia.add(NL.openEtiology, myokymiaOpenEtiology);
 }
 
 static void initializeNeuroMyotonia() {
-    neuroMyotonia.add(NL.neuromuscular, 20);
-    neuroMyotonia.add(NL.systemicIllness, 20);
-    neuroMyotonia.add(NL.peripheralNeuropathy, 50);
-    neuroMyotonia.add(NL.openEtiology, 50);
+    neuroMyotonia.add(NL.neuromuscular, neuroMyotoniaNeuromuscular);
+    neuroMyotonia.add(NL.systemicIllness, neuroMyotoniaSystemicIllness);
+    neuroMyotonia.add(NL.peripheralNeuropathy, neuroMyotoniaPeripheralNeuropathy);
+    neuroMyotonia.add(NL.openEtiology, neuroMyotoniaOpenEtiology);
 }
 
 static void initializeNarcolepsy() {
-    narcolepsy.add(NL.forebrain, 25);
-    narcolepsy.add(NL.rightForebrain, 20);
-    narcolepsy.add(NL.leftForebrain, 20);
-    narcolepsy.add(NL.intracranial, 35);
+    narcolepsy.add(NL.forebrain, narcolepsyForebrain);
+    narcolepsy.add(NL.rightForebrain, narcolepsyRightForebrain);
+    narcolepsy.add(NL.leftForebrain, narcolepsyLeftForebrain);
+    narcolepsy.add(NL.intracranial, narcolepsyIntracranial);
 }
 
 static void initializeHeadSwaying() {
-    headSwaying.add(NL.vestibular, 50);
+    headSwaying.add(NL.vestibular, headSwayingVestibular);
 }
 
 static void initializeAlert() {
-    alert.add(NL.normalExam, 5);
-    alert.sub(NL.forebrain, 10);
-    alert.sub(NL.rightForebrain, 10);
-    alert.sub(NL.leftForebrain, 10);
-    alert.sub(NL.brainstem, 25);
-    alert.sub(NL.systemicIllness, 10);
-    alert.sub(NL.intracranial, 20);
+    alert.add(NL.normalExam, alertNormalExam);
+    alert.sub(NL.forebrain, alertForebrain);
+    alert.sub(NL.rightForebrain, alertRightForebrain);
+    alert.sub(NL.leftForebrain, alertLeftForebrain);
+    alert.sub(NL.brainstem, alertBrainstem);
+    alert.sub(NL.systemicIllness, alertSystemicIllness);
+    alert.sub(NL.intracranial, alertIntracranial);
 }
 
 static void initializeLethargic() {
-    lethargic.add(NL.forebrain, 15);
-    lethargic.add(NL.rightForebrain, 15);
-    lethargic.add(NL.leftForebrain, 15);
-    lethargic.add(NL.brainstem, 15);
-    lethargic.add(NL.vestibular, 15);
-    lethargic.add(NL.rightCentralVestibular, 15);
-    lethargic.add(NL.leftCentralVestibular, 15);
-    lethargic.add(NL.rightCerebellumParadoxical, 15);
-    lethargic.add(NL.leftCerebellumParadoxical, 15);
-    lethargic.add(NL.systemicIllness, 25);
-    lethargic.add(NL.intracranial, 20);
+    lethargic.add(NL.forebrain, lethargicForebrain);
+    lethargic.add(NL.rightForebrain, lethargicRightForebrain);
+    lethargic.add(NL.leftForebrain, lethargicLeftForebrain);
+    lethargic.add(NL.brainstem, lethargicBrainstem);
+    lethargic.add(NL.vestibular, lethargicVestibular);
+    lethargic.add(NL.rightCentralVestibular, lethargicRightCentralVestibular);
+    lethargic.add(NL.leftCentralVestibular, lethargicLeftCentralVestibular);
+    lethargic.add(NL.rightCerebellumParadoxical, lethargicRightCerebellumParadoxical);
+    lethargic.add(NL.leftCerebellumParadoxical, lethargicLeftCerebellumParadoxical);
+    lethargic.add(NL.systemicIllness, lethargicSystemicIllness);
+    lethargic.add(NL.intracranial, lethargicIntracranial);
 }
 
 static void initializeObtunded() {
-    obtunded.add(NL.forebrain, 45);
-    obtunded.add(NL.rightForebrain, 40);
-    obtunded.add(NL.leftForebrain, 40);
-    obtunded.add(NL.brainstem, 45);
-    obtunded.add(NL.vestibular, 25);
-    obtunded.add(NL.rightCentralVestibular, 28);
-    obtunded.add(NL.leftCentralVestibular, 28);
-    obtunded.add(NL.rightCerebellumParadoxical, 20);
-    obtunded.add(NL.leftCerebellumParadoxical, 20);
-    obtunded.add(NL.systemicIllness, 25);
-    obtunded.add(NL.intracranial, 40);
+    obtunded.add(NL.forebrain, obtundedForebrain);
+    obtunded.add(NL.rightForebrain, obtundedRightForebrain);
+    obtunded.add(NL.leftForebrain, obtundedLeftForebrain);
+    obtunded.add(NL.brainstem, obtundedBrainstem);
+    obtunded.add(NL.vestibular, obtundedVestibular);
+    obtunded.add(NL.rightCentralVestibular, obtundedRightCentralVestibular);
+    obtunded.add(NL.leftCentralVestibular, obtundedLeftCentralVestibular);
+    obtunded.add(NL.rightCerebellumParadoxical, obtundedRightCerebellumParadoxical);
+    obtunded.add(NL.leftCerebellumParadoxical, obtundedLeftCerebellumParadoxical);
+    obtunded.add(NL.systemicIllness, obtundedSystemicIllness);
+    obtunded.add(NL.intracranial, obtundedIntracranial);
 }
 
 static void initializeStuporous() {
-    stuporous.add(NL.brainstem, 100);
-    stuporous.add(NL.rightCentralVestibular, 50);
-    stuporous.add(NL.leftCentralVestibular, 50);
-    stuporous.add(NL.intracranial, 55);
+    stuporous.add(NL.brainstem, stuporousBrainstem);
+    stuporous.add(NL.rightCentralVestibular, stuporousRightCentralVestibular);
+    stuporous.add(NL.leftCentralVestibular, stuporousLeftCentralVestibular);
+    stuporous.add(NL.intracranial, stuporousIntracranial);
 }
 
 static void initializeComatose() {
-    comatose.add(NL.brainstem, 1000);
-    comatose.add(NL.intracranial, 55);
+    comatose.add(NL.brainstem, comatoseBrainstem);
+    comatose.add(NL.intracranial, comatoseIntracranial);
 }
 
 static void initializeNormalPosture() {
-    normalPosture.add(NL.normalExam, 5);
-    normalPosture.sub(NL.vestibular, 50);
-    normalPosture.sub(NL.rightPeripheralVestibular, 20);
-    normalPosture.sub(NL.rightCentralVestibular, 20);
-    normalPosture.sub(NL.leftPeripheralVestibular, 20);
-    normalPosture.sub(NL.leftCentralVestibular, 20);
-    normalPosture.sub(NL.rightCerebellumParadoxical, 100);
-    normalPosture.sub(NL.leftCerebellumParadoxical, 100);
-    normalPosture.sub(NL.nerveRootSignature, 30);
+    normalPosture.add(NL.normalExam, normalPostureNormalExam);
+    normalPosture.sub(NL.vestibular, normalPostureVestibular);
+    normalPosture.sub(NL.rightPeripheralVestibular, normalPostureRightPeripheralVestibular);
+    normalPosture.sub(NL.rightCentralVestibular, normalPostureRightCentralVestibular);
+    normalPosture.sub(NL.leftPeripheralVestibular, normalPostureLeftPeripheralVestibular);
+    normalPosture.sub(NL.leftCentralVestibular, normalPostureLeftCentralVestibular);
+    normalPosture.sub(NL.rightCerebellumParadoxical, normalPostureRightCerebellumParadoxical);
+    normalPosture.sub(NL.leftCerebellumParadoxical, normalPostureLeftCerebellumParadoxical);
+    normalPosture.sub(NL.nerveRootSignature, normalPostureNerveRootSignature);
 }
 
 static void initializeHeadTiltRight() {
-    headTiltRight.add(NL.vestibular, 50);
-    headTiltRight.add(NL.rightPeripheralVestibular, 100);
-    headTiltRight.add(NL.rightCentralVestibular, 100);
-    headTiltRight.sub(NL.leftPeripheralVestibular, 50);
-    headTiltRight.sub(NL.leftCentralVestibular, 50);
-    headTiltRight.add(NL.cerebellum, 25);
-    headTiltRight.sub(NL.rightCerebellumParadoxical, 100);
-    headTiltRight.add(NL.leftCerebellumParadoxical, 100);
-    headTiltRight.add(NL.intracranial, 15);
+    headTiltRight.add(NL.vestibular, headTiltRightVestibular);
+    headTiltRight.add(NL.rightPeripheralVestibular, headTiltRightRightPeripheralVestibular);
+    headTiltRight.add(NL.rightCentralVestibular, headTiltRightRightCentralVestibular);
+    headTiltRight.sub(NL.leftPeripheralVestibular, headTiltRightLeftPeripheralVestibular);
+    headTiltRight.sub(NL.leftCentralVestibular, headTiltRightLeftCentralVestibular);
+    headTiltRight.add(NL.cerebellum, headTiltRightCerebellum);
+    headTiltRight.sub(NL.rightCerebellumParadoxical, headTiltRightRightCerebellumParadoxical);
+    headTiltRight.add(NL.leftCerebellumParadoxical, headTiltRightLeftCerebellumParadoxical);
+    headTiltRight.add(NL.intracranial, headTiltRightIntracranial);
 }
 
 static void initializeHeadTiltLeft() {
-    headTiltLeft.add(NL.vestibular, 50);
-    headTiltLeft.sub(NL.rightPeripheralVestibular, 50);
-    headTiltLeft.sub(NL.rightCentralVestibular, 50);
-    headTiltLeft.add(NL.leftPeripheralVestibular, 100);
-    headTiltLeft.add(NL.leftCentralVestibular, 100);
-    headTiltLeft.add(NL.cerebellum, 25);
-    headTiltLeft.add(NL.rightCerebellumParadoxical, 100);
-    headTiltLeft.sub(NL.leftCerebellumParadoxical, 100);
-    headTiltLeft.add(NL.intracranial, 15);
+    headTiltLeft.add(NL.vestibular, headTiltLeftVestibular);
+    headTiltLeft.sub(NL.rightPeripheralVestibular, headTiltLeftRightPeripheralVestibular);
+    headTiltLeft.sub(NL.rightCentralVestibular, headTiltLeftRightCentralVestibular);
+    headTiltLeft.add(NL.leftPeripheralVestibular, headTiltLeftLeftPeripheralVestibular);
+    headTiltLeft.add(NL.leftCentralVestibular, headTiltLeftLeftCentralVestibular);
+    headTiltLeft.add(NL.cerebellum, headTiltLeftCerebellum);
+    headTiltLeft.add(NL.rightCerebellumParadoxical, headTiltLeftRightCerebellumParadoxical);
+    headTiltLeft.sub(NL.leftCerebellumParadoxical, headTiltLeftLeftCerebellumParadoxical);
+    headTiltLeft.add(NL.intracranial, headTiltLeftIntracranial);
 }
 
 static void initializeHeadTurnRight() {
-    headTurnRight.add(NL.forebrain, 50);
-    headTurnRight.add(NL.rightForebrain, 100);
-    headTurnRight.sub(NL.leftForebrain, 100);
-    headTurnRight.add(NL.c1C5Myelopathy, 10);
-    headTurnRight.add(NL.c6T2Myelopathy, 10);
-    headTurnRight.add(NL.intracranial, 25);
-    headTurnRight.add(NL.nonSpecificPain, 5);
-    headTurnRight.add(NL.cervicalPain, 5);
+    headTurnRight.add(NL.forebrain, headTurnRightForebrain);
+    headTurnRight.add(NL.rightForebrain, headTurnRightRightForebrain);
+    headTurnRight.sub(NL.leftForebrain, headTurnRightLeftForebrain);
+    headTurnRight.add(NL.c1C5Myelopathy, headTurnRightC1C5Myelopathy);
+    headTurnRight.add(NL.c6T2Myelopathy, headTurnRightC6T2Myelopathy);
+    headTurnRight.add(NL.intracranial, headTurnRightIntracranial);
+    headTurnRight.add(NL.nonSpecificPain, headTurnRightNonSpecificPain);
+    headTurnRight.add(NL.cervicalPain, headTurnRightCervicalPain);
 }
 
 static void initializeHeadTurnLeft() {
-    headTurnLeft.add(NL.forebrain, 50);
-    headTurnLeft.sub(NL.rightForebrain, 100);
-    headTurnLeft.add(NL.leftForebrain, 100);
-    headTurnLeft.add(NL.c1C5Myelopathy, 10);
-    headTurnLeft.add(NL.c6T2Myelopathy, 10);
-    headTurnLeft.add(NL.intracranial, 25);
-    headTurnLeft.add(NL.nonSpecificPain, 5);
-    headTurnLeft.add(NL.cervicalPain, 5);
+    headTurnLeft.add(NL.forebrain, headTurnLeftForebrain);
+    headTurnLeft.sub(NL.rightForebrain, headTurnLeftRightForebrain);
+    headTurnLeft.add(NL.leftForebrain, headTurnLeftLeftForebrain);
+    headTurnLeft.add(NL.c1C5Myelopathy, headTurnLeftC1C5Myelopathy);
+    headTurnLeft.add(NL.c6T2Myelopathy, headTurnLeftC6T2Myelopathy);
+    headTurnLeft.add(NL.intracranial, headTurnLeftIntracranial);
+    headTurnLeft.add(NL.nonSpecificPain, headTurnLeftNonSpecificPain);
+    headTurnLeft.add(NL.cervicalPain, headTurnLeftCervicalPain);
 }
 
 static void initializeTorticollis() {
-    torticollis.add(NL.c1C5Myelopathy, 20);
-    torticollis.add(NL.c6T2Myelopathy, 20);
-    torticollis.add(NL.cervicalPain, 10);
+    torticollis.add(NL.c1C5Myelopathy, torticollisC1C5Myelopathy);
+    torticollis.add(NL.c6T2Myelopathy, torticollisC6T2Myelopathy);
+    torticollis.add(NL.cervicalPain, torticollisCervicalPain);
 }
 
 static void initializeNeckGuarded() {
-    neckGuarded.add(NL.c1C5Myelopathy, 25);
-    neckGuarded.add(NL.c6T2Myelopathy, 20);
-    neckGuarded.add(NL.cervicalPain, 40);
+    neckGuarded.add(NL.c1C5Myelopathy, neckGuardedC1C5Myelopathy);
+    neckGuarded.add(NL.c6T2Myelopathy, neckGuardedC6T2Myelopathy);
+    neckGuarded.add(NL.cervicalPain, neckGuardedCervicalPain);
 }
 
 static void initializeArcherPosture() {
-    archerPosture.add(NL.vestibular, 50);
-    archerPosture.add(NL.rightPeripheralVestibular, 50);
-    archerPosture.add(NL.rightCentralVestibular, 50);
-    archerPosture.add(NL.leftPeripheralVestibular, 50);
-    archerPosture.add(NL.leftCentralVestibular, 50);
-    archerPosture.add(NL.rightCerebellumParadoxical, 50);
-    archerPosture.add(NL.leftCerebellumParadoxical, 50);
-    archerPosture.add(NL.intracranial, 30);
+    archerPosture.add(NL.vestibular, archerPostureVestibular);
+    archerPosture.add(NL.rightPeripheralVestibular, archerPostureRightPeripheralVestibular);
+    archerPosture.add(NL.rightCentralVestibular, archerPostureRightCentralVestibular);
+    archerPosture.add(NL.leftPeripheralVestibular, archerPostureLeftPeripheralVestibular);
+    archerPosture.add(NL.leftCentralVestibular, archerPostureLeftCentralVestibular);
+    archerPosture.add(NL.rightCerebellumParadoxical, archerPostureRightCerebellumParadoxical);
+    archerPosture.add(NL.leftCerebellumParadoxical, archerPostureLeftCerebellumParadoxical);
+    archerPosture.add(NL.intracranial, archerPostureIntracranial);
 }
 
 static void initializeHoldingUpLimb() {
-    holdingUpLimb.add(NL.orthopedic, 15);
-    holdingUpLimb.add(NL.nerveRootSignature, 15);
+    holdingUpLimb.add(NL.orthopedic, holdingUpLimbOrthopedic);
+    holdingUpLimb.add(NL.nerveRootSignature, holdingUpLimbNerveRootSignature);
 }
 
 static void initializeLaterallyRecumbent() {
-    laterallyRecumbent.add(NL.forebrain, 20);
-    laterallyRecumbent.add(NL.rightForebrain, 20);
-    laterallyRecumbent.add(NL.leftForebrain, 20);
-    laterallyRecumbent.add(NL.brainstem, 20);
-    laterallyRecumbent.add(NL.vestibular, 15);
-    laterallyRecumbent.add(NL.rightPeripheralVestibular, 15);
-    laterallyRecumbent.add(NL.rightCentralVestibular, 15);
-    laterallyRecumbent.add(NL.leftPeripheralVestibular, 15);
-    laterallyRecumbent.add(NL.leftCentralVestibular, 15);
-    laterallyRecumbent.add(NL.rightCerebellumParadoxical, 15);
-    laterallyRecumbent.add(NL.leftCerebellumParadoxical, 15);
-    laterallyRecumbent.add(NL.c1C5Myelopathy, 18);
-    laterallyRecumbent.add(NL.c6T2Myelopathy, 18);
-    laterallyRecumbent.add(NL.motorUnit, 15);
-    laterallyRecumbent.add(NL.centralCordSyndrome, 12);
-    laterallyRecumbent.add(NL.intracranial, 15);
-    laterallyRecumbent.add(NL.myopathy, 15);
+    laterallyRecumbent.add(NL.forebrain, laterallyRecumbentForebrain);
+    laterallyRecumbent.add(NL.rightForebrain, laterallyRecumbentRightForebrain);
+    laterallyRecumbent.add(NL.leftForebrain, laterallyRecumbentLeftForebrain);
+    laterallyRecumbent.add(NL.brainstem, laterallyRecumbentBrainstem);
+    laterallyRecumbent.add(NL.vestibular, laterallyRecumbentVestibular);
+    laterallyRecumbent.add(NL.rightPeripheralVestibular, laterallyRecumbentRightPeripheralVestibular);
+    laterallyRecumbent.add(NL.rightCentralVestibular, laterallyRecumbentRightCentralVestibular);
+    laterallyRecumbent.add(NL.leftPeripheralVestibular, laterallyRecumbentLeftPeripheralVestibular);
+    laterallyRecumbent.add(NL.leftCentralVestibular, laterallyRecumbentLeftCentralVestibular);
+    laterallyRecumbent.add(NL.rightCerebellumParadoxical, laterallyRecumbentRightCerebellumParadoxical);
+    laterallyRecumbent.add(NL.leftCerebellumParadoxical, laterallyRecumbentLeftCerebellumParadoxical);
+    laterallyRecumbent.add(NL.c1C5Myelopathy, laterallyRecumbentC1C5Myelopathy);
+    laterallyRecumbent.add(NL.c6T2Myelopathy, laterallyRecumbentC6T2Myelopathy);
+    laterallyRecumbent.add(NL.motorUnit, laterallyRecumbentMotorUnit);
+    laterallyRecumbent.add(NL.centralCordSyndrome, laterallyRecumbentCentralCordSyndrome);
+    laterallyRecumbent.add(NL.intracranial, laterallyRecumbentIntracranial);
+    laterallyRecumbent.add(NL.myopathy, laterallyRecumbentMyopathy);
 }
 
 static void initializeDecerebrate() {
-    decerebrate.add(NL.forebrain, 40);
-    decerebrate.add(NL.rightForebrain, 35);
-    decerebrate.add(NL.leftForebrain, 35);
-    decerebrate.add(NL.brainstem, 100);
-    decerebrate.add(NL.intracranial, 25);
+    decerebrate.add(NL.forebrain, decerebrateForebrain);
+    decerebrate.add(NL.rightForebrain, decerebrateRightForebrain);
+    decerebrate.add(NL.leftForebrain, decerebrateLeftForebrain);
+    decerebrate.add(NL.brainstem, decerebrateBrainstem);
+    decerebrate.add(NL.intracranial, decerebrateIntracranial);
 }
 
 static void initializeDecerebellate() {
-    decerebellate.add(NL.vestibular, 15);
-    decerebellate.add(NL.cerebellum, 100);
-    decerebellate.add(NL.rightCerebellumParadoxical, 25);
-    decerebellate.add(NL.leftCerebellumParadoxical, 25);
+    decerebellate.add(NL.vestibular, decerebellateVestibular);
+    decerebellate.add(NL.cerebellum, decerebellateCerebellum);
+    decerebellate.add(NL.rightCerebellumParadoxical, decerebellateRightCerebellumParadoxical);
+    decerebellate.add(NL.leftCerebellumParadoxical, decerebellateLeftCerebellumParadoxical);
 }
 
 static void initializeOpisthotonus() {
-    opisthotonus.add(NL.forebrain, 50);
-    opisthotonus.add(NL.rightForebrain, 35);
-    opisthotonus.add(NL.leftForebrain, 35);
-    opisthotonus.add(NL.brainstem, 50);
-    opisthotonus.add(NL.vestibular, 30);
-    opisthotonus.add(NL.rightPeripheralVestibular, 20);
-    opisthotonus.add(NL.rightCentralVestibular, 20);
-    opisthotonus.add(NL.leftPeripheralVestibular, 20);
-    opisthotonus.add(NL.leftCentralVestibular, 20);
-    opisthotonus.add(NL.cerebellum, 30);
-    opisthotonus.add(NL.rightCerebellumParadoxical, 20);
-    opisthotonus.add(NL.leftCerebellumParadoxical, 20);
-    opisthotonus.add(NL.c1C5Myelopathy, 15);
-    opisthotonus.add(NL.c6T2Myelopathy, 15);
-    opisthotonus.add(NL.t3L3Myelopathy, 15);
-    opisthotonus.add(NL.intracranial, 50);
+    opisthotonus.add(NL.forebrain, opisthotonusForebrain);
+    opisthotonus.add(NL.rightForebrain, opisthotonusRightForebrain);
+    opisthotonus.add(NL.leftForebrain, opisthotonusLeftForebrain);
+    opisthotonus.add(NL.brainstem, opisthotonusBrainstem);
+    opisthotonus.add(NL.vestibular, opisthotonusVestibular);
+    opisthotonus.add(NL.rightPeripheralVestibular, opisthotonusRightPeripheralVestibular);
+    opisthotonus.add(NL.rightCentralVestibular, opisthotonusRightCentralVestibular);
+    opisthotonus.add(NL.leftPeripheralVestibular, opisthotonusLeftPeripheralVestibular);
+    opisthotonus.add(NL.leftCentralVestibular, opisthotonusLeftCentralVestibular);
+    opisthotonus.add(NL.cerebellum, opisthotonusCerebellum);
+    opisthotonus.add(NL.rightCerebellumParadoxical, opisthotonusRightCerebellumParadoxical);
+    opisthotonus.add(NL.leftCerebellumParadoxical, opisthotonusLeftCerebellumParadoxical);
+    opisthotonus.add(NL.c1C5Myelopathy, opisthotonusC1C5Myelopathy);
+    opisthotonus.add(NL.c6T2Myelopathy, opisthotonusC6T2Myelopathy);
+    opisthotonus.add(NL.t3L3Myelopathy, opisthotonusT3L3Myelopathy);
+    opisthotonus.add(NL.intracranial, opisthotonusIntracranial);
 }
 
 static void initializeSchiffSherrington() {
-    schiffSherrington.add(NL.t3L3Myelopathy, 100);
-    schiffSherrington.add(NL.l4S3Myelopathy, 25);
+    schiffSherrington.add(NL.t3L3Myelopathy, schiffSherringtonT3L3Myelopathy);
+    schiffSherrington.add(NL.l4S3Myelopathy, schiffSherringtonL4S3Myelopathy);
 }
 
 static void initializeKyphosis() {
-    kyphosis.add(NL.t3L3Myelopathy, 26);
-    kyphosis.add(NL.nonSpecificPain, 25);
-    kyphosis.add(NL.openEtiology, 15);
+    kyphosis.add(NL.t3L3Myelopathy, kyphosisT3L3Myelopathy);
+    kyphosis.add(NL.nonSpecificPain, kyphosisNonSpecificPain);
+    kyphosis.add(NL.openEtiology, kyphosisOpenEtiology);
 }
 
 static void initializeScoliosis() {
-    scoliosis.add(NL.t3L3Myelopathy, 26);
-    scoliosis.add(NL.nonSpecificPain, 25);
+    scoliosis.add(NL.t3L3Myelopathy, scoliosisT3L3Myelopathy);
+    scoliosis.add(NL.nonSpecificPain, scoliosisNonSpecificPain);
 }
 
 static void initializeDiffuseRigidity() {
-    diffuseRigidity.add(NL.brainstem, 40);
-    diffuseRigidity.add(NL.c1C5Myelopathy, 35);
-    diffuseRigidity.add(NL.motorUnit, 40);
-    diffuseRigidity.add(NL.peripheralNeuropathy, 38);
+    diffuseRigidity.add(NL.brainstem, diffuseRigidityBrainstem);
+    diffuseRigidity.add(NL.c1C5Myelopathy, diffuseRigidityC1C5Myelopathy);
+    diffuseRigidity.add(NL.motorUnit, diffuseRigidityMotorUnit);
+    diffuseRigidity.add(NL.peripheralNeuropathy, diffuseRigidityPeripheralNeuropathy);
 }
 
 static void initializeRisusSardonicus() {
-    risusSardonicus.add(NL.brainstem, 50);
+    risusSardonicus.add(NL.brainstem, risusSardonicusBrainstem);
 }
 
 static void initializeDiffuseFlaccidity() {
-    diffuseFlaccidity.add(NL.motorUnit, 100);
-    diffuseFlaccidity.add(NL.neuromuscular, 35);
-    diffuseFlaccidity.add(NL.peripheralNeuropathy, 30);
+    diffuseFlaccidity.add(NL.motorUnit, diffuseFlaccidityMotorUnit);
+    diffuseFlaccidity.add(NL.neuromuscular, diffuseFlaccidityNeuromuscular);
+    diffuseFlaccidity.add(NL.peripheralNeuropathy, diffuseFlaccidityPeripheralNeuropathy);
 }
 
 static void initializeSpasticThoracicLimbs() {
-    spasticThoracicLimbs.add(NL.forebrain, 10);
-    spasticThoracicLimbs.add(NL.vestibular, 15);
-    spasticThoracicLimbs.add(NL.cerebellum, 5);
-    spasticThoracicLimbs.add(NL.c1C5Myelopathy, 20);
-    spasticThoracicLimbs.add(NL.t3L3Myelopathy, 15);
+    spasticThoracicLimbs.add(NL.forebrain, spasticThoracicLimbsForebrain);
+    spasticThoracicLimbs.add(NL.vestibular, spasticThoracicLimbsVestibular);
+    spasticThoracicLimbs.add(NL.cerebellum, spasticThoracicLimbsCerebellum);
+    spasticThoracicLimbs.add(NL.c1C5Myelopathy, spasticThoracicLimbsC1C5Myelopathy);
+    spasticThoracicLimbs.add(NL.t3L3Myelopathy, spasticThoracicLimbsT3L3Myelopathy);
 }
 
 static void initializeSpasticPelvicLimbs() {
-    spasticPelvicLimbs.add(NL.c6T2Myelopathy, 15);
-    spasticPelvicLimbs.add(NL.t3L3Myelopathy, 25);
+    spasticPelvicLimbs.add(NL.c6T2Myelopathy, spasticPelvicLimbsC6T2Myelopathy);
+    spasticPelvicLimbs.add(NL.t3L3Myelopathy, spasticPelvicLimbsT3L3Myelopathy);
 }
 
 static void initializeSpasticAllLimbs() {
-    spasticAllLimbs.add(NL.forebrain, 10);
-    spasticAllLimbs.add(NL.vestibular, 15);
-    spasticAllLimbs.add(NL.cerebellum, 5);
-    spasticAllLimbs.add(NL.c1C5Myelopathy, 35);
+    spasticAllLimbs.add(NL.forebrain, spasticAllLimbsForebrain);
+    spasticAllLimbs.add(NL.vestibular, spasticAllLimbsVestibular);
+    spasticAllLimbs.add(NL.cerebellum, spasticAllLimbsCerebellum);
+    spasticAllLimbs.add(NL.c1C5Myelopathy, spasticAllLimbsC1C5Myelopathy);
 }
 
 static void initializeCrouchedPostureThoracicLimbs() {
-    crouchedPostureThoracicLimbs.add(NL.c6T2Myelopathy, 15);
-    crouchedPostureThoracicLimbs.add(NL.centralCordSyndrome, 30);
-    crouchedPostureThoracicLimbs.add(NL.motorUnit, 5);
-    crouchedPostureThoracicLimbs.add(NL.neuromuscular, 5);
-    crouchedPostureThoracicLimbs.add(NL.peripheralNeuropathy, 5);
-    crouchedPostureThoracicLimbs.add(NL.myopathy, 15);
-    crouchedPostureThoracicLimbs.add(NL.nonSpecificPain, 12);
+    crouchedPostureThoracicLimbs.add(NL.c6T2Myelopathy, crouchedPostureThoracicLimbsC6T2Myelopathy);
+    crouchedPostureThoracicLimbs.add(NL.centralCordSyndrome, crouchedPostureThoracicLimbsCentralCordSyndrome);
+    crouchedPostureThoracicLimbs.add(NL.motorUnit, crouchedPostureThoracicLimbsMotorUnit);
+    crouchedPostureThoracicLimbs.add(NL.neuromuscular, crouchedPostureThoracicLimbsNeuromuscular);
+    crouchedPostureThoracicLimbs.add(NL.peripheralNeuropathy, crouchedPostureThoracicLimbsPeripheralNeuropathy);
+    crouchedPostureThoracicLimbs.add(NL.myopathy, crouchedPostureThoracicLimbsMyopathy);
+    crouchedPostureThoracicLimbs.add(NL.nonSpecificPain, crouchedPostureThoracicLimbsNonSpecificPain);
 }
 
 static void initializeCrouchedPosturePelvicLimbs() {
-    crouchedPosturePelvicLimbs.add(NL.l4S3Myelopathy, 30);
-    crouchedPosturePelvicLimbs.add(NL.motorUnit, 30);
-    crouchedPosturePelvicLimbs.add(NL.neuromuscular, 25);
-    crouchedPosturePelvicLimbs.add(NL.peripheralNeuropathy, 15);
-    crouchedPosturePelvicLimbs.add(NL.myopathy, 15);
-    crouchedPosturePelvicLimbs.add(NL.caudaEquina, 30);
-    crouchedPosturePelvicLimbs.add(NL.nonSpecificPain, 15);
+    crouchedPosturePelvicLimbs.add(NL.l4S3Myelopathy, crouchedPosturePelvicLimbsL4S3Myelopathy);
+    crouchedPosturePelvicLimbs.add(NL.motorUnit, crouchedPosturePelvicLimbsMotorUnit);
+    crouchedPosturePelvicLimbs.add(NL.neuromuscular, crouchedPosturePelvicLimbsNeuromuscular);
+    crouchedPosturePelvicLimbs.add(NL.peripheralNeuropathy, crouchedPosturePelvicLimbsPeripheralNeuropathy);
+    crouchedPosturePelvicLimbs.add(NL.myopathy, crouchedPosturePelvicLimbsMyopathy);
+    crouchedPosturePelvicLimbs.add(NL.caudaEquina, crouchedPosturePelvicLimbsCaudaEquina);
+    crouchedPosturePelvicLimbs.add(NL.nonSpecificPain, crouchedPosturePelvicLimbsNonSpecificPain);
 }
 
 static void initializeCrouchedPostureAllLimbs() {
-    crouchedPostureAllLimbs.add(NL.motorUnit, 30);
-    crouchedPostureAllLimbs.add(NL.neuromuscular, 15);
-    crouchedPostureAllLimbs.add(NL.peripheralNeuropathy, 10);
-    crouchedPostureAllLimbs.add(NL.myopathy, 25);
-    crouchedPostureAllLimbs.add(NL.nonSpecificPain, 20);
+    crouchedPostureAllLimbs.add(NL.motorUnit, crouchedPostureAllLimbsMotorUnit);
+    crouchedPostureAllLimbs.add(NL.neuromuscular, crouchedPostureAllLimbsNeuromuscular);
+    crouchedPostureAllLimbs.add(NL.peripheralNeuropathy, crouchedPostureAllLimbsPeripheralNeuropathy);
+    crouchedPostureAllLimbs.add(NL.myopathy, crouchedPostureAllLimbsMyopathy);
+    crouchedPostureAllLimbs.add(NL.nonSpecificPain, crouchedPostureAllLimbsNonSpecificPain);
 }
 
 static void initializePrayingPosture() {
-    prayingPosture.add(NL.nonSpecificPain, 40);
+    prayingPosture.add(NL.nonSpecificPain, prayingPostureNonSpecificPain);
 }
 
 static void initializeAmbulatoryNormal() {
-    ambulatoryNormal.add(NL.normalExam, 5);
+    ambulatoryNormal.add(NL.normalExam, ambulatoryNormalNormalExam);
 }
 
 static void initializeAmbulatoryLamenessThoracic() {
-  ambulatoryLamenessThoracic.add(NL.c1C5Myelopathy, 5);
-  ambulatoryLamenessThoracic.add(NL.c6T2Myelopathy, 5);
-  ambulatoryLamenessThoracic.add(NL.orthopedic, 50);
-  ambulatoryLamenessThoracic.add(NL.nerveRootSignature, 20);
-  ambulatoryLamenessThoracic.add(NL.nonSpecificPain, 5);
+    ambulatoryLamenessThoracic.add(NL.c1C5Myelopathy, ambulatoryLamenessThoracicC1C5Myelopathy);
+    ambulatoryLamenessThoracic.add(NL.c6T2Myelopathy, ambulatoryLamenessThoracicC6T2Myelopathy);
+    ambulatoryLamenessThoracic.add(NL.orthopedic, ambulatoryLamenessThoracicOrthopedic);
+    ambulatoryLamenessThoracic.add(NL.nerveRootSignature, ambulatoryLamenessThoracicNerveRootSignature);
+    ambulatoryLamenessThoracic.add(NL.nonSpecificPain, ambulatoryLamenessThoracicNonSpecificPain);
 }
 
 static void initializeAmbulatoryLamenessPelvic() {
-  ambulatoryLamenessThoracic.add(NL.c1C5Myelopathy, 5);
-  ambulatoryLamenessThoracic.add(NL.c6T2Myelopathy, 5);
-  ambulatoryLamenessThoracic.add(NL.orthopedic, 50);
-  ambulatoryLamenessThoracic.add(NL.nerveRootSignature, 20);
-  ambulatoryLamenessThoracic.add(NL.nonSpecificPain, 5);
+    ambulatoryLamenessPelvic.add(NL.c1C5Myelopathy, ambulatoryLamenessPelvicC1C5Myelopathy);
+    ambulatoryLamenessPelvic.add(NL.c6T2Myelopathy, ambulatoryLamenessPelvicC6T2Myelopathy);
+    ambulatoryLamenessPelvic.add(NL.orthopedic, ambulatoryLamenessPelvicOrthopedic);
+    ambulatoryLamenessPelvic.add(NL.nerveRootSignature, ambulatoryLamenessPelvicNerveRootSignature);
+    ambulatoryLamenessPelvic.add(NL.nonSpecificPain, ambulatoryLamenessPelvicNonSpecificPain);
 }
 
 static void initializeAmbulatoryMonoparesisThoracic() {
-  ambulatoryMonoparesisThoracic.add(NL.c6T2Myelopathy, 15);
-  ambulatoryMonoparesisThoracic.add(NL.orthopedic, 5);
-  ambulatoryMonoparesisThoracic.add(NL.nerveRootSignature, 15);
-  ambulatoryMonoparesisThoracic.add(NL.brachialPlexus, 35);
-  ambulatoryMonoparesisThoracic.add(NL.nonSpecificPain, 5);
+    ambulatoryMonoparesisThoracic.add(NL.c6T2Myelopathy, ambulatoryMonoparesisThoracicC6T2Myelopathy);
+    ambulatoryMonoparesisThoracic.add(NL.orthopedic, ambulatoryMonoparesisThoracicOrthopedic);
+    ambulatoryMonoparesisThoracic.add(NL.nerveRootSignature, ambulatoryMonoparesisThoracicNerveRootSignature);
+    ambulatoryMonoparesisThoracic.add(NL.brachialPlexus, ambulatoryMonoparesisThoracicBrachialPlexus);
+    ambulatoryMonoparesisThoracic.add(NL.nonSpecificPain, ambulatoryMonoparesisThoracicNonSpecificPain);
 }
 
 static void initializeAmbulatoryMonoparesisPelvic() {
-  ambulatoryMonoparesisPelvic.add(NL.l4S3Myelopathy, 15);
-  ambulatoryMonoparesisPelvic.add(NL.orthopedic, 5);
-  ambulatoryMonoparesisPelvic.add(NL.nerveRootSignature, 15);
-  ambulatoryMonoparesisPelvic.add(NL.caudaEquina, 30);
-  ambulatoryMonoparesisPelvic.add(NL.aorticThromboembolism, 5);
-  ambulatoryMonoparesisPelvic.add(NL.nonSpecificPain, 5);
+    ambulatoryMonoparesisPelvic.add(NL.l4S3Myelopathy, ambulatoryMonoparesisPelvicL4S3Myelopathy);
+    ambulatoryMonoparesisPelvic.add(NL.orthopedic, ambulatoryMonoparesisPelvicOrthopedic);
+    ambulatoryMonoparesisPelvic.add(NL.nerveRootSignature, ambulatoryMonoparesisPelvicNerveRootSignature);
+    ambulatoryMonoparesisPelvic.add(NL.caudaEquina, ambulatoryMonoparesisPelvicCaudaEquina);
+    ambulatoryMonoparesisPelvic.add(NL.aorticThromboembolism, ambulatoryMonoparesisPelvicAorticThromboembolism);
+    ambulatoryMonoparesisPelvic.add(NL.nonSpecificPain, ambulatoryMonoparesisPelvicNonSpecificPain);
 }
 
 static void initializeAmbulatoryMonoplegiaThoracic() {
-  ambulatoryMonoplegiaThoracic.add(NL.c6T2Myelopathy, 15);
-  ambulatoryMonoplegiaThoracic.add(NL.orthopedic, 5);
-  ambulatoryMonoplegiaThoracic.add(NL.nerveRootSignature, 15);
-  ambulatoryMonoplegiaThoracic.add(NL.brachialPlexus, 50);
-  ambulatoryMonoplegiaThoracic.add(NL.nonSpecificPain, 5);
+    ambulatoryMonoplegiaThoracic.add(NL.c6T2Myelopathy, ambulatoryMonoplegiaThoracicC6T2Myelopathy);
+    ambulatoryMonoplegiaThoracic.add(NL.orthopedic, ambulatoryMonoplegiaThoracicOrthopedic);
+    ambulatoryMonoplegiaThoracic.add(NL.nerveRootSignature, ambulatoryMonoplegiaThoracicNerveRootSignature);
+    ambulatoryMonoplegiaThoracic.add(NL.brachialPlexus, ambulatoryMonoplegiaThoracicBrachialPlexus);
+    ambulatoryMonoplegiaThoracic.add(NL.nonSpecificPain, ambulatoryMonoplegiaThoracicNonSpecificPain);
 }
 
 static void initializeAmbulatoryMonoplegiaPelvic() {
-  ambulatoryMonoplegiaPelvic.add(NL.l4S3Myelopathy, 25);
-  ambulatoryMonoplegiaPelvic.add(NL.orthopedic, 5);
-  ambulatoryMonoplegiaPelvic.add(NL.nerveRootSignature, 15);
-  ambulatoryMonoplegiaPelvic.add(NL.caudaEquina, 40);
-  ambulatoryMonoplegiaPelvic.add(NL.aorticThromboembolism, 5);
-  ambulatoryMonoplegiaPelvic.add(NL.nonSpecificPain, 5);
+    ambulatoryMonoplegiaPelvic.add(NL.l4S3Myelopathy, ambulatoryMonoplegiaPelvicL4S3Myelopathy);
+    ambulatoryMonoplegiaPelvic.add(NL.orthopedic, ambulatoryMonoplegiaPelvicOrthopedic);
+    ambulatoryMonoplegiaPelvic.add(NL.nerveRootSignature, ambulatoryMonoplegiaPelvicNerveRootSignature);
+    ambulatoryMonoplegiaPelvic.add(NL.caudaEquina, ambulatoryMonoplegiaPelvicCaudaEquina);
+    ambulatoryMonoplegiaPelvic.add(NL.aorticThromboembolism, ambulatoryMonoplegiaPelvicAorticThromboembolism);
+    ambulatoryMonoplegiaPelvic.add(NL.nonSpecificPain, ambulatoryMonoplegiaPelvicNonSpecificPain);
 }
 
 static void initializeAmbulatoryParaparesisThoracic() {
-  ambulatoryParaparesisThoracic.add(NL.c1C5Myelopathy, 20);
-  ambulatoryParaparesisThoracic.add(NL.c6T2Myelopathy, 27);
-  ambulatoryParaparesisThoracic.add(NL.orthopedic, 5);
-  ambulatoryParaparesisThoracic.add(NL.brachialPlexus, 5);
-  ambulatoryParaparesisThoracic.add(NL.motorUnit, 7);
-  ambulatoryParaparesisThoracic.add(NL.neuromuscular, 8);
-  ambulatoryParaparesisThoracic.add(NL.centralCordSyndrome, 50);
+    ambulatoryParaparesisThoracic.add(NL.c1C5Myelopathy, ambulatoryParaparesisThoracicC1C5Myelopathy);
+    ambulatoryParaparesisThoracic.add(NL.c6T2Myelopathy, ambulatoryParaparesisThoracicC6T2Myelopathy);
+    ambulatoryParaparesisThoracic.add(NL.orthopedic, ambulatoryParaparesisThoracicOrthopedic);
+    ambulatoryParaparesisThoracic.add(NL.brachialPlexus, ambulatoryParaparesisThoracicBrachialPlexus);
+    ambulatoryParaparesisThoracic.add(NL.motorUnit, ambulatoryParaparesisThoracicMotorUnit);
+    ambulatoryParaparesisThoracic.add(NL.neuromuscular, ambulatoryParaparesisThoracicNeuromuscular);
+    ambulatoryParaparesisThoracic.add(NL.centralCordSyndrome, ambulatoryParaparesisThoracicCentralCordSyndrome);
 }
 
 static void initializeAmbulatoryParaparesisPelvic() {
-  ambulatoryParaparesisPelvic.add(NL.t3L3Myelopathy, 50);
-  ambulatoryParaparesisPelvic.add(NL.l4S3Myelopathy, 45);
-  ambulatoryParaparesisPelvic.add(NL.caudaEquina, 40);
-  ambulatoryParaparesisPelvic.add(NL.motorUnit, 35);
-  ambulatoryParaparesisPelvic.add(NL.neuromuscular, 30);
-  ambulatoryParaparesisPelvic.add(NL.aorticThromboembolism, 10);
+    ambulatoryParaparesisPelvic.add(NL.t3L3Myelopathy, ambulatoryParaparesisPelvicT3L3Myelopathy);
+    ambulatoryParaparesisPelvic.add(NL.l4S3Myelopathy, ambulatoryParaparesisPelvicL4S3Myelopathy);
+    ambulatoryParaparesisPelvic.add(NL.caudaEquina, ambulatoryParaparesisPelvicCaudaEquina);
+    ambulatoryParaparesisPelvic.add(NL.motorUnit, ambulatoryParaparesisPelvicMotorUnit);
+    ambulatoryParaparesisPelvic.add(NL.neuromuscular, ambulatoryParaparesisPelvicNeuromuscular);
+    ambulatoryParaparesisPelvic.add(NL.aorticThromboembolism, ambulatoryParaparesisPelvicAorticThromboembolism);
 }
 
 static void initializeAmbulatoryTetraparesis() {
-  ambulatoryTetraparesis.add(NL.forebrain, 10);
-  ambulatoryTetraparesis.add(NL.brainstem, 15);
-  ambulatoryTetraparesis.add(NL.vestibular, 10);
-  ambulatoryTetraparesis.add(NL.rightCentralVestibular, 5);
-  ambulatoryTetraparesis.add(NL.leftCentralVestibular, 5);
-  ambulatoryTetraparesis.add(NL.cerebellum, 5);
-  ambulatoryTetraparesis.add(NL.c1C5Myelopathy, 30);
-  ambulatoryTetraparesis.add(NL.c6T2Myelopathy, 25);
-  ambulatoryTetraparesis.add(NL.motorUnit, 25);
-  ambulatoryTetraparesis.add(NL.neuromuscular, 22);
-  ambulatoryTetraparesis.add(NL.intracranial, 5);
+    ambulatoryTetraparesis.add(NL.forebrain, ambulatoryTetraparesisForebrain);
+    ambulatoryTetraparesis.add(NL.brainstem, ambulatoryTetraparesisBrainstem);
+    ambulatoryTetraparesis.add(NL.vestibular, ambulatoryTetraparesisVestibular);
+    ambulatoryTetraparesis.add(NL.rightCentralVestibular, ambulatoryTetraparesisRightCentralVestibular);
+    ambulatoryTetraparesis.add(NL.leftCentralVestibular, ambulatoryTetraparesisLeftCentralVestibular);
+    ambulatoryTetraparesis.add(NL.cerebellum, ambulatoryTetraparesisCerebellum);
+    ambulatoryTetraparesis.add(NL.c1C5Myelopathy, ambulatoryTetraparesisC1C5Myelopathy);
+    ambulatoryTetraparesis.add(NL.c6T2Myelopathy, ambulatoryTetraparesisC6T2Myelopathy);
+    ambulatoryTetraparesis.add(NL.motorUnit, ambulatoryTetraparesisMotorUnit);
+    ambulatoryTetraparesis.add(NL.neuromuscular, ambulatoryTetraparesisNeuromuscular);
+    ambulatoryTetraparesis.add(NL.intracranial, ambulatoryTetraparesisIntracranial);
 }
 
 static void initializeAmbulatoryShortStridedThoracic() {
-  ambulatoryShortStridedThoracic.add(NL.c6T2Myelopathy, 50);
-  ambulatoryShortStridedThoracic.add(NL.orthopedic, 10);
-  ambulatoryShortStridedThoracic.add(NL.brachialPlexus, 5);
-  ambulatoryShortStridedThoracic.add(NL.motorUnit, 20);
-  ambulatoryShortStridedThoracic.add(NL.neuromuscular, 20);
-  ambulatoryShortStridedThoracic.add(NL.centralCordSyndrome, 15);
-  ambulatoryShortStridedThoracic.add(NL.behavioral, 15);
-  ambulatoryShortStridedThoracic.add(NL.myopathy, 15);
-  ambulatoryShortStridedThoracic.add(NL.peripheralNeuropathy, 15);
+    ambulatoryShortStridedThoracic.add(NL.c6T2Myelopathy, ambulatoryShortStridedThoracicC6T2Myelopathy);
+    ambulatoryShortStridedThoracic.add(NL.orthopedic, ambulatoryShortStridedThoracicOrthopedic);
+    ambulatoryShortStridedThoracic.add(NL.brachialPlexus, ambulatoryShortStridedThoracicBrachialPlexus);
+    ambulatoryShortStridedThoracic.add(NL.motorUnit, ambulatoryShortStridedThoracicMotorUnit);
+    ambulatoryShortStridedThoracic.add(NL.neuromuscular, ambulatoryShortStridedThoracicNeuromuscular);
+    ambulatoryShortStridedThoracic.add(NL.centralCordSyndrome, ambulatoryShortStridedThoracicCentralCordSyndrome);
+    ambulatoryShortStridedThoracic.add(NL.behavioral, ambulatoryShortStridedThoracicBehavioral);
+    ambulatoryShortStridedThoracic.add(NL.myopathy, ambulatoryShortStridedThoracicMyopathy);
+    ambulatoryShortStridedThoracic.add(NL.peripheralNeuropathy, ambulatoryShortStridedThoracicPeripheralNeuropathy);
 }
 
 static void initializeAmbulatoryShortStridedPelvic() {
-  ambulatoryShortStridedPelvic.add(NL.l4S3Myelopathy, 35);
-  ambulatoryShortStridedPelvic.add(NL.caudaEquina, 40);
-  ambulatoryShortStridedPelvic.add(NL.motorUnit, 30);
-  ambulatoryShortStridedPelvic.add(NL.neuromuscular, 30);
-  ambulatoryShortStridedPelvic.add(NL.aorticThromboembolism, 10);
-  ambulatoryShortStridedPelvic.add(NL.myopathy, 20);
-  ambulatoryShortStridedPelvic.add(NL.peripheralNeuropathy, 20);
-}
-
-static void initializeAmbulatoryShortStridedAll() {
-  ambulatoryShortStridedAll.add(NL.motorUnit, 75);
-  ambulatoryShortStridedAll.add(NL.neuromuscular, 40);
-  ambulatoryShortStridedAll.add(NL.myopathy, 35);
-}
-
-static void initializeAmbulatory2EngineGait() {
-  ambulatory2EngineGait.add(NL.c6T2Myelopathy, 100);
-}
-
-static void initializeAmbulatoryParaparesisPelvicProprioceptiveAtaxia() {
-  ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.t3L3Myelopathy, 50);
-  ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.l4S3Myelopathy, 25);
-  ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.caudaEquina, 10);
-}
-
-static void initializeAmbulatoryTetraparesisProprioceptiveAtaxia() {
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.forebrain, 10);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.brainstem, 15);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.vestibular, 10);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.rightCentralVestibular, 5);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.leftCentralVestibular, 5);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.cerebellum, 5);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.c1C5Myelopathy, 30);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.c6T2Myelopathy, 15);
-  ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.intracranial, 5);
-}
-
-static void initializeAmbulatoryProprioceptiveAtaxiaPelvic() {
-  ambulatoryProprioceptiveAtaxiaPelvic.add(NL.t3L3Myelopathy, 40);
-}
-
-static void initializeAmbulatoryProprioceptiveAtaxiaAll() {
-  ambulatoryProprioceptiveAtaxiaAll.add(NL.forebrain, 10);
-  ambulatoryProprioceptiveAtaxiaAll.add(NL.c1C5Myelopathy, 50);
-  ambulatoryProprioceptiveAtaxiaAll.add(NL.brainstem, 15);
-}
-
-static void initializeAmbulatoryFatiguable() {
-  ambulatoryFatiguable.add(NL.neuromuscular, 50);
-  ambulatoryFatiguable.add(NL.motorUnit, 25);
-  ambulatoryFatiguable.add(NL.myopathy, 25);
-}
-
-static void initializeAmbulatoryTetraparesisVestibularAtaxia() {
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.brainstem, 15);
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.vestibular, 35);
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.rightPeripheralVestibular, 30);
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.rightCentralVestibular, 20);
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.leftPeripheralVestibular, 30);
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.leftCentralVestibular, 20);
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.rightCerebellumParadoxical, 20);
-  ambulatoryTetraparesisVestibularAtaxia.add(NL.leftCerebellumParadoxical, 20);
-}
-
-static void initializeAmbulatoryTetraparesisCerebellarAtaxia() {
-  ambulatoryTetraparesisCerebellarAtaxia.add(NL.cerebellum, 40);
-  ambulatoryTetraparesisCerebellarAtaxia.add(NL.rightCerebellumParadoxical, 10);
-  ambulatoryTetraparesisCerebellarAtaxia.add(NL.leftCerebellumParadoxical, 10);
-}
-
-static void initializeAmbulatoryVestibularAtaxia() {
-  ambulatoryVestibularAtaxia.add(NL.brainstem, 15);
-  ambulatoryVestibularAtaxia.add(NL.vestibular, 60);
-  ambulatoryVestibularAtaxia.add(NL.rightPeripheralVestibular, 40);
-  ambulatoryVestibularAtaxia.add(NL.rightCentralVestibular, 20);
-  ambulatoryVestibularAtaxia.add(NL.leftPeripheralVestibular, 40);
-  ambulatoryVestibularAtaxia.add(NL.leftCentralVestibular, 20);
-  ambulatoryVestibularAtaxia.add(NL.cerebellum, 5);
+    ambulatoryShortStridedPelvic.add(NL.l4S3Myelopathy, ambulatoryShortStridedPelvicL4S3Myelopathy);
+    ambulatoryShortStridedPelvic.add(NL.caudaEquina, ambulatoryShortStridedPelvicCaudaEquina);
+    ambulatoryShortStridedPelvic.add(NL.motorUnit, ambulatoryShortStridedPelvicMotorUnit);
+    ambulatoryShortStridedPelvic.add(NL.neuromuscular, ambulatoryShortStridedPelvicNeuromuscular);
+    ambulatoryShortStridedPelvic.add(NL.aorticThromboembolism, ambulatoryShortStridedPelvicAorticThromboembolism);
+    ambulatoryShortStridedPelvic.add(NL.myopathy, ambulatoryShortStridedPelvicMyopathy);
+    ambulatoryShortStridedPelvic.add(NL.peripheralNeuropathy, ambulatoryShortStridedPelvicPeripheralNeuropathy);
 }
 
 static void initializeAmbulatoryCerebellarAtaxia() {
-  ambulatoryCerebellarAtaxia.add(NL.cerebellum, 75);
-  ambulatoryCerebellarAtaxia.add(NL.rightCerebellumParadoxical, 10);
-  ambulatoryCerebellarAtaxia.add(NL.leftCerebellumParadoxical, 10);
+    ambulatoryCerebellarAtaxia.add(NL.cerebellum, ambulatoryCerebellarAtaxiaCerebellum);
+    ambulatoryCerebellarAtaxia.add(NL.rightCerebellumParadoxical, ambulatoryCerebellarAtaxiaRightCerebellumParadoxical);
+    ambulatoryCerebellarAtaxia.add(NL.leftCerebellumParadoxical, ambulatoryCerebellarAtaxiaLeftCerebellumParadoxical);
 }
 
 static void initializeAmbulatoryMixedAtaxia() {
-  ambulatoryMixedAtaxia.add(NL.brainstem, 70);
-  ambulatoryMixedAtaxia.add(NL.rightCentralVestibular, 25);
+    ambulatoryMixedAtaxia.add(NL.brainstem, ambulatoryMixedAtaxiaBrainstem);
+    ambulatoryMixedAtaxia.add(NL.rightCentralVestibular, ambulatoryMixedAtaxiaRightCentralVestibular);
 }
 
 static void initializeAmbulatoryMixedAtaxiaTetraparesis() {
-  ambulatoryMixedAtaxiaTetraparesis.add(NL.leftCentralVestibular, 25);
-  ambulatoryMixedAtaxiaTetraparesis.add(NL.cerebellum, 50);
-  ambulatoryMixedAtaxiaTetraparesis.add(NL.rightCerebellumParadoxical, 20);
-  ambulatoryMixedAtaxiaTetraparesis.add(NL.leftCerebellumParadoxical, 20);
+    ambulatoryMixedAtaxiaTetraparesis.add(NL.leftCentralVestibular, ambulatoryMixedAtaxiaTetraparesisLeftCentralVestibular);
+    ambulatoryMixedAtaxiaTetraparesis.add(NL.cerebellum, ambulatoryMixedAtaxiaTetraparesisCerebellum);
+    ambulatoryMixedAtaxiaTetraparesis.add(NL.rightCerebellumParadoxical, ambulatoryMixedAtaxiaTetraparesisRightCerebellumParadoxical);
+    ambulatoryMixedAtaxiaTetraparesis.add(NL.leftCerebellumParadoxical, ambulatoryMixedAtaxiaTetraparesisLeftCerebellumParadoxical);
 }
 
 static void initializeAmbulatoryHemiparesisLeft() {
-  ambulatoryHemiparesisLeft.add(NL.rightForebrain, 25);
-  ambulatoryHemiparesisLeft.sub(NL.leftForebrain, 25);
-  ambulatoryHemiparesisLeft.add(NL.brainstem, 18);
-  ambulatoryHemiparesisLeft.add(NL.leftCentralVestibular, 15);
-  ambulatoryHemiparesisLeft.add(NL.leftCerebellumParadoxical, 15);
-  ambulatoryHemiparesisLeft.add(NL.c1C5Myelopathy, 35);
-  ambulatoryHemiparesisLeft.add(NL.c6T2Myelopathy, 15);
+    ambulatoryHemiparesisLeft.add(NL.rightForebrain, ambulatoryHemiparesisLeftRightForebrain);
+    ambulatoryHemiparesisLeft.sub(NL.leftForebrain, ambulatoryHemiparesisLeftLeftForebrain);
+    ambulatoryHemiparesisLeft.add(NL.brainstem, ambulatoryHemiparesisLeftBrainstem);
+    ambulatoryHemiparesisLeft.add(NL.leftCentralVestibular, ambulatoryHemiparesisLeftLeftCentralVestibular);
+    ambulatoryHemiparesisLeft.add(NL.leftCerebellumParadoxical, ambulatoryHemiparesisLeftLeftCerebellumParadoxical);
+    ambulatoryHemiparesisLeft.add(NL.c1C5Myelopathy, ambulatoryHemiparesisLeftC1C5Myelopathy);
+    ambulatoryHemiparesisLeft.add(NL.c6T2Myelopathy, ambulatoryHemiparesisLeftC6T2Myelopathy);
 }
 
 static void initializeAmbulatoryHemiparesisLeftProprioceptiveAtaxia() {
-  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.rightForebrain, 25);
-  ambulatoryHemiparesisLeftProprioceptiveAtaxia.sub(NL.leftForebrain, 25);
-  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.brainstem, 18);
-  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.c1C5Myelopathy, 35);
-  ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.c6T2Myelopathy, 15);
+    ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.rightForebrain, ambulatoryHemiparesisLeftProprioceptiveAtaxiaRightForebrain);
+    ambulatoryHemiparesisLeftProprioceptiveAtaxia.sub(NL.leftForebrain, ambulatoryHemiparesisLeftProprioceptiveAtaxiaLeftForebrain);
+    ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.brainstem, ambulatoryHemiparesisLeftProprioceptiveAtaxiaBrainstem);
+    ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.c1C5Myelopathy, ambulatoryHemiparesisLeftProprioceptiveAtaxiaC1C5Myelopathy);
+    ambulatoryHemiparesisLeftProprioceptiveAtaxia.add(NL.c6T2Myelopathy, ambulatoryHemiparesisLeftProprioceptiveAtaxiaC6T2Myelopathy);
 }
 
 static void initializeAmbulatoryHemiparesisLeftCerebellarAtaxia() {
-  ambulatoryHemiparesisLeftCerebellarAtaxia.add(NL.leftCerebellumParadoxical, 100);
+    ambulatoryHemiparesisLeftCerebellarAtaxia.add(NL.leftCerebellumParadoxical, ambulatoryHemiparesisLeftCerebellarAtaxiaLeftCerebellumParadoxical);
 }
 
 static void initializeAmbulatoryHemiparesisLeftMixedAtaxia() {
-  ambulatoryHemiparesisLeftMixedAtaxia.add(NL.brainstem, 35);
-  ambulatoryHemiparesisLeftMixedAtaxia.add(NL.leftCentralVestibular, 40);
-  ambulatoryHemiparesisLeftMixedAtaxia.add(NL.leftCerebellumParadoxical, 40);
+    ambulatoryHemiparesisLeftMixedAtaxia.add(NL.brainstem, ambulatoryHemiparesisLeftMixedAtaxiaBrainstem);
+    ambulatoryHemiparesisLeftMixedAtaxia.add(NL.leftCentralVestibular, ambulatoryHemiparesisLeftMixedAtaxiaLeftCentralVestibular);
+    ambulatoryHemiparesisLeftMixedAtaxia.add(NL.leftCerebellumParadoxical, ambulatoryHemiparesisLeftMixedAtaxiaLeftCerebellumParadoxical);
 }
 
 static void initializeAmbulatoryHemiparesisLeftVestibularAtaxia() {
-  ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.brainstem, 18);
-  ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.leftCentralVestibular, 50);
-  ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.leftCerebellumParadoxical, 25);
+    ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.brainstem, ambulatoryHemiparesisLeftVestibularAtaxiaBrainstem);
+    ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.leftCentralVestibular, ambulatoryHemiparesisLeftVestibularAtaxiaLeftCentralVestibular);
+    ambulatoryHemiparesisLeftVestibularAtaxia.add(NL.leftCerebellumParadoxical, ambulatoryHemiparesisLeftVestibularAtaxiaLeftCerebellumParadoxical);
 }
 
 static void initializeAmbulatoryHemiparesisRight() {
-  ambulatoryHemiparesisRight.add(NL.leftForebrain, 25);
-  ambulatoryHemiparesisRight.sub(NL.rightForebrain, 25);
-  ambulatoryHemiparesisRight.add(NL.brainstem, 18);
-  ambulatoryHemiparesisRight.add(NL.rightCentralVestibular, 15);
-  ambulatoryHemiparesisRight.add(NL.rightCerebellumParadoxical, 15);
-  ambulatoryHemiparesisRight.add(NL.c1C5Myelopathy, 35);
-  ambulatoryHemiparesisRight.add(NL.c6T2Myelopathy, 15);
+    ambulatoryHemiparesisRight.add(NL.leftForebrain, ambulatoryHemiparesisRightLeftForebrain);
+    ambulatoryHemiparesisRight.sub(NL.rightForebrain, ambulatoryHemiparesisRightRightForebrain);
+    ambulatoryHemiparesisRight.add(NL.brainstem, ambulatoryHemiparesisRightBrainstem);
+    ambulatoryHemiparesisRight.add(NL.rightCentralVestibular, ambulatoryHemiparesisRightRightCentralVestibular);
+    ambulatoryHemiparesisRight.add(NL.rightCerebellumParadoxical, ambulatoryHemiparesisRightRightCerebellumParadoxical);
+    ambulatoryHemiparesisRight.add(NL.c1C5Myelopathy, ambulatoryHemiparesisRightC1C5Myelopathy);
+    ambulatoryHemiparesisRight.add(NL.c6T2Myelopathy, ambulatoryHemiparesisRightC6T2Myelopathy);
 }
 
 static void initializeAmbulatoryHemiparesisRightProprioceptiveAtaxia() {
-  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.leftForebrain, 25);
-  ambulatoryHemiparesisRightProprioceptiveAtaxia.sub(NL.rightForebrain, 25);
-  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.brainstem, 18);
-  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.c1C5Myelopathy, 35);
-  ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.c6T2Myelopathy, 15);
+    ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.leftForebrain, ambulatoryHemiparesisRightProprioceptiveAtaxiaLeftForebrain);
+    ambulatoryHemiparesisRightProprioceptiveAtaxia.sub(NL.rightForebrain, ambulatoryHemiparesisRightProprioceptiveAtaxiaRightForebrain);
+    ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.brainstem, ambulatoryHemiparesisRightProprioceptiveAtaxiaBrainstem);
+    ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.c1C5Myelopathy, ambulatoryHemiparesisRightProprioceptiveAtaxiaC1C5Myelopathy);
+    ambulatoryHemiparesisRightProprioceptiveAtaxia.add(NL.c6T2Myelopathy, ambulatoryHemiparesisRightProprioceptiveAtaxiaC6T2Myelopathy);
 }
 
 static void initializeAmbulatoryHemiparesisRightCerebellarAtaxia() {
-  ambulatoryHemiparesisRightCerebellarAtaxia.add(NL.rightCerebellumParadoxical, 100);
+    ambulatoryHemiparesisRightCerebellarAtaxia.add(NL.rightCerebellumParadoxical, ambulatoryHemiparesisRightCerebellarAtaxiaRightCerebellumParadoxical);
 }
 
 static void initializeAmbulatoryHemiparesisRightMixedAtaxia() {
-  ambulatoryHemiparesisRightMixedAtaxia.add(NL.brainstem, 35);
-  ambulatoryHemiparesisRightMixedAtaxia.add(NL.rightCentralVestibular, 40);
-  ambulatoryHemiparesisRightMixedAtaxia.add(NL.rightCerebellumParadoxical, 40);
+    ambulatoryHemiparesisRightMixedAtaxia.add(NL.brainstem, ambulatoryHemiparesisRightMixedAtaxiaBrainstem);
+    ambulatoryHemiparesisRightMixedAtaxia.add(NL.rightCentralVestibular, ambulatoryHemiparesisRightMixedAtaxiaRightCentralVestibular);
+    ambulatoryHemiparesisRightMixedAtaxia.add(NL.rightCerebellumParadoxical, ambulatoryHemiparesisRightMixedAtaxiaRightCerebellumParadoxical);
 }
 
 static void initializeAmbulatoryHemiparesisRightVestibularAtaxia() {
-  ambulatoryHemiparesisRightVestibularAtaxia.add(NL.brainstem, 18);
-  ambulatoryHemiparesisRightVestibularAtaxia.add(NL.rightCentralVestibular, 50);
-  ambulatoryHemiparesisRightVestibularAtaxia.add(NL.rightCerebellumParadoxical, 25);
+    ambulatoryHemiparesisRightVestibularAtaxia.add(NL.brainstem, ambulatoryHemiparesisRightVestibularAtaxiaBrainstem);
+    ambulatoryHemiparesisRightVestibularAtaxia.add(NL.rightCentralVestibular, ambulatoryHemiparesisRightVestibularAtaxiaRightCentralVestibular);
+    ambulatoryHemiparesisRightVestibularAtaxia.add(NL.rightCerebellumParadoxical, ambulatoryHemiparesisRightVestibularAtaxiaRightCerebellumParadoxical);
 }
 
 }
