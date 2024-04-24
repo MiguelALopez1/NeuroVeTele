@@ -10,10 +10,11 @@ class LaunchLogic {
   }
 
   void goToDashboard(BuildContext context) {
-    DashboardModel model = DashboardModel();  
-    DashboardPageController controller = DashboardPageController(model);
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DashboardPageView(controller)));
-  }
+  DashboardModel model = DashboardModel();  
+  DashboardPageController controller = DashboardPageController();
+  Navigator.of(context).push(MaterialPageRoute(builder: (context) => DashboardPageView(controller)));
+}
+
 }
 
 class LaunchPage extends StatelessWidget {

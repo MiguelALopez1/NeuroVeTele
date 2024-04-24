@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dashboard_page_controller.dart';
+import 'dashboard_globals.dart';
 
 class DashboardPageView extends StatefulWidget {
   final DashboardPageController controller;
@@ -11,33 +12,51 @@ class DashboardPageView extends StatefulWidget {
 }
 
 class _DashboardPageViewState extends State<DashboardPageView> {
-  final TextEditingController _searchController = TextEditingController();
-  String _searchText = "";
+  // Controllers for the TextFields
+  final TextEditingController _normalNormalExamController = TextEditingController();
+  final TextEditingController _normalRightForebrainController = TextEditingController();
+  final TextEditingController _normalLeftForebrainController = TextEditingController();
+  final TextEditingController _normalBehavioralController = TextEditingController();
+  final TextEditingController _normalIntercranialController = TextEditingController();
+  final TextEditingController _quietNormalExamController = TextEditingController();
+  final TextEditingController _fearfulForebrainController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _searchController.addListener(() {
-      setState(() {
-        _searchText = _searchController.text;
-      });
-    });
+    // Initialize controllers with current global variable values
+    _normalNormalExamController.text = normalNormalExam.toString();
+    _normalRightForebrainController.text = normalRightForebrain.toString();
+    _normalLeftForebrainController.text = normalLeftForebrain.toString();
+    _normalBehavioralController.text = normalBehavioral.toString();
+    _normalIntercranialController.text = normalIntercranial.toString();
+    _quietNormalExamController.text = quietNormalExam.toString();
+    _fearfulForebrainController.text = fearfulForebrain.toString();
   }
 
   @override
   void dispose() {
-    _searchController.dispose();
+    // Dispose controllers
+    _normalNormalExamController.dispose();
+    _normalRightForebrainController.dispose();
+    _normalLeftForebrainController.dispose();
+    _normalBehavioralController.dispose();
+    _normalIntercranialController.dispose();
+    _quietNormalExamController.dispose();
+    _fearfulForebrainController.dispose();
     super.dispose();
   }
 
-  List<String> get _filteredOptions {
-    if (_searchText.isEmpty) {
-      return widget.controller.model.behaviors.keys.toList();
-    } else {
-      return widget.controller.model.behaviors.keys
-          .where((option) => option.toLowerCase().contains(_searchText.toLowerCase()))
-          .toList();
-    }
+  void saveUpdates() {
+    // Pass each controller's value to the controller to update the global variables
+    widget.controller.updateGlobalVariable('normalNormalExam', _normalNormalExamController.text);
+    widget.controller.updateGlobalVariable('normalRightForebrain', _normalRightForebrainController.text);
+    widget.controller.updateGlobalVariable('normalLeftForebrain', _normalLeftForebrainController.text);
+    widget.controller.updateGlobalVariable('normalBehavioral', _normalBehavioralController.text);
+    widget.controller.updateGlobalVariable('normalIntercranial', _normalIntercranialController.text);
+    widget.controller.updateGlobalVariable('quietNormalExam', _quietNormalExamController.text);
+    widget.controller.updateGlobalVariable('fearfulForebrain', _fearfulForebrainController.text);
+    widget.controller.saveUpdates();
   }
 
   @override
@@ -48,61 +67,51 @@ class _DashboardPageViewState extends State<DashboardPageView> {
         actions: [
           IconButton(
             icon: Icon(Icons.save),
-            onPressed: () {
-              widget.controller.updatePointsFromControllers();
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('All changes have been saved.'))
-              );
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.home),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: saveUpdates,
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                labelText: 'Search',
-                suffixIcon: Icon(Icons.search),
-              ),
-              onChanged: (value) => setState(() {}),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            TextField(
+              controller: _normalNormalExamController,
+              decoration: InputDecoration(labelText: 'Normal Normal Exam Points'),
+              keyboardType: TextInputType.number,
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _filteredOptions.length,
-              itemBuilder: (context, index) {
-                String option = _filteredOptions[index];
-                return ExpansionTile(
-                  title: Text(option),
-                  children: widget.controller.model.behaviors[option]!.entries.map((entry) {
-                    TextEditingController ctrl = widget.controller.getController(option, entry.key);
-                    return ListTile(
-                      title: Text(entry.key),
-                      trailing: SizedBox(
-                        width: 100,
-                        child: TextField(
-                          controller: ctrl,
-                          decoration: InputDecoration(
-                            labelText: 'Points',
-                          ),
-                          keyboardType: TextInputType.number,
-                          onSubmitted: (_) => widget.controller.updatePointsFromControllers(),
-                        ),
-                      ),
-                    );
-                  }).toList(),
-                );
-              },
+            TextField(
+              controller: _normalRightForebrainController,
+              decoration: InputDecoration(labelText: 'Normal Right Forebrain Points'),
+              keyboardType: TextInputType.number,
             ),
-          ),
-        ],
+            TextField(
+              controller: _normalLeftForebrainController,
+              decoration: InputDecoration(labelText: 'Normal Left Forebrain Points'),
+              keyboardType: TextInputType.number,
+            ),
+            TextField(
+              controller: _normalBehavioralController,
+              decoration: InputDecoration(labelText: 'Normal Behavioral Points'),
+              keyboardType: TextInputType.number,
+            ),
+            TextField(
+              controller: _normalIntercranialController,
+              decoration: InputDecoration(labelText: 'Normal Intercranial Points'),
+              keyboardType: TextInputType.number,
+            ),
+            TextField(
+              controller: _quietNormalExamController,
+              decoration: InputDecoration(labelText: 'Quiet Normal Exam Points'),
+              keyboardType: TextInputType.number,
+            ),
+            TextField(
+              controller: _fearfulForebrainController,
+              decoration: InputDecoration(labelText: 'Fearful Forebrain Points'),
+              keyboardType: TextInputType.number,
+            ),
+            // Add more TextFields for other variables
+          ],
+        ),
       ),
     );
   }

@@ -774,6 +774,77 @@ static void initializeAmbulatoryShortStridedPelvic() {
     ambulatoryShortStridedPelvic.add(NL.peripheralNeuropathy, ambulatoryShortStridedPelvicPeripheralNeuropathy);
 }
 
+static void initializeAmbulatoryShortStridedAll() {
+    ambulatoryShortStridedAll.add(NL.motorUnit, ambulatoryShortStridedAllMotorUnit);
+    ambulatoryShortStridedAll.add(NL.neuromuscular, ambulatoryShortStridedAllNeuromuscular);
+    ambulatoryShortStridedAll.add(NL.myopathy, ambulatoryShortStridedAllMyopathy);
+}
+
+static void initializeAmbulatory2EngineGait() {
+    ambulatory2EngineGait.add(NL.c6T2Myelopathy, ambulatory2EngineGaitC6T2Myelopathy);
+}
+
+static void initializeAmbulatoryParaparesisPelvicProprioceptiveAtaxia() {
+    ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.t3L3Myelopathy, ambulatoryParaparesisPelvicProprioceptiveAtaxiaT3L3Myelopathy);
+    ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.l4S3Myelopathy, ambulatoryParaparesisPelvicProprioceptiveAtaxiaL4S3Myelopathy);
+    ambulatoryParaparesisPelvicProprioceptiveAtaxia.add(NL.caudaEquina, ambulatoryParaparesisPelvicProprioceptiveAtaxiaCaudaEquina);
+}
+
+static void initializeAmbulatoryTetraparesisProprioceptiveAtaxia() {
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.forebrain, ambulatoryTetraparesisProprioceptiveAtaxiaForebrain);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.brainstem, ambulatoryTetraparesisProprioceptiveAtaxiaBrainstem);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.vestibular, ambulatoryTetraparesisProprioceptiveAtaxiaVestibular);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.rightCentralVestibular, ambulatoryTetraparesisProprioceptiveAtaxiaRightCentralVestibular);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.leftCentralVestibular, ambulatoryTetraparesisProprioceptiveAtaxiaLeftCentralVestibular);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.cerebellum, ambulatoryTetraparesisProprioceptiveAtaxiaCerebellum);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.c1C5Myelopathy, ambulatoryTetraparesisProprioceptiveAtaxiaC1C5Myelopathy);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.c6T2Myelopathy, ambulatoryTetraparesisProprioceptiveAtaxiaC6T2Myelopathy);
+    ambulatoryTetraparesisProprioceptiveAtaxia.add(NL.intracranial, ambulatoryTetraparesisProprioceptiveAtaxiaIntracranial);
+}
+static void initializeAmbulatoryProprioceptiveAtaxiaPelvic() {
+    ambulatoryProprioceptiveAtaxiaPelvic.add(NL.t3L3Myelopathy, ambulatoryProprioceptiveAtaxiaPelvicT3L3Myelopathy);
+}
+
+static void initializeAmbulatoryProprioceptiveAtaxiaAll() {
+    ambulatoryProprioceptiveAtaxiaAll.add(NL.forebrain, ambulatoryProprioceptiveAtaxiaAllForebrain);
+    ambulatoryProprioceptiveAtaxiaAll.add(NL.c1C5Myelopathy, ambulatoryProprioceptiveAtaxiaAllC1C5Myelopathy);
+    ambulatoryProprioceptiveAtaxiaAll.add(NL.brainstem, ambulatoryProprioceptiveAtaxiaAllBrainstem);
+}
+
+static void initializeAmbulatoryFatiguable() {
+    ambulatoryFatiguable.add(NL.neuromuscular, ambulatoryFatiguableNeuromuscular);
+    ambulatoryFatiguable.add(NL.motorUnit, ambulatoryFatiguableMotorUnit);
+    ambulatoryFatiguable.add(NL.myopathy, ambulatoryFatiguableMyopathy);
+}
+
+static void initializeAmbulatoryTetraparesisVestibularAtaxia() {
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.brainstem, ambulatoryTetraparesisVestibularAtaxiaBrainstem);
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.vestibular, ambulatoryTetraparesisVestibularAtaxiaVestibular);
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.rightPeripheralVestibular, ambulatoryTetraparesisVestibularAtaxiaRightPeripheralVestibular);
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.rightCentralVestibular, ambulatoryTetraparesisVestibularAtaxiaRightCentralVestibular);
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.leftPeripheralVestibular, ambulatoryTetraparesisVestibularAtaxiaLeftPeripheralVestibular);
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.leftCentralVestibular, ambulatoryTetraparesisVestibularAtaxiaLeftCentralVestibular);
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.rightCerebellumParadoxical, ambulatoryTetraparesisVestibularAtaxiaRightCerebellumParadoxical);
+    ambulatoryTetraparesisVestibularAtaxia.add(NL.leftCerebellumParadoxical, ambulatoryTetraparesisVestibularAtaxiaLeftCerebellumParadoxical);
+}
+
+static void initializeAmbulatoryTetraparesisCerebellarAtaxia() {
+    ambulatoryTetraparesisCerebellarAtaxia.add(NL.cerebellum, ambulatoryTetraparesisCerebellarAtaxiaCerebellum);
+    ambulatoryTetraparesisCerebellarAtaxia.add(NL.rightCerebellumParadoxical, ambulatoryTetraparesisCerebellarAtaxiaRightCerebellumParadoxical);
+    ambulatoryTetraparesisCerebellarAtaxia.add(NL.leftCerebellumParadoxical, ambulatoryTetraparesisCerebellarAtaxiaLeftCerebellumParadoxical);
+}
+
+static void initializeAmbulatoryVestibularAtaxia() {
+    ambulatoryVestibularAtaxia.add(NL.brainstem, ambulatoryVestibularAtaxiaBrainstem);
+    ambulatoryVestibularAtaxia.add(NL.vestibular, ambulatoryVestibularAtaxiaVestibular);
+    ambulatoryVestibularAtaxia.add(NL.rightPeripheralVestibular, ambulatoryVestibularAtaxiaRightPeripheralVestibular);
+    ambulatoryVestibularAtaxia.add(NL.rightCentralVestibular, ambulatoryVestibularAtaxiaRightCentralVestibular);
+    ambulatoryVestibularAtaxia.add(NL.leftPeripheralVestibular, ambulatoryVestibularAtaxiaLeftPeripheralVestibular);
+    ambulatoryVestibularAtaxia.add(NL.leftCentralVestibular, ambulatoryVestibularAtaxiaLeftCentralVestibular);
+    ambulatoryVestibularAtaxia.add(NL.cerebellum, ambulatoryVestibularAtaxiaCerebellum);
+}
+
+
 static void initializeAmbulatoryCerebellarAtaxia() {
     ambulatoryCerebellarAtaxia.add(NL.cerebellum, ambulatoryCerebellarAtaxiaCerebellum);
     ambulatoryCerebellarAtaxia.add(NL.rightCerebellumParadoxical, ambulatoryCerebellarAtaxiaRightCerebellumParadoxical);
