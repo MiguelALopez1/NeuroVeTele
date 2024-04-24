@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import 'general_page_view.dart'; 
+import 'general_page_view.dart';
+import 'dashboard_page_view.dart';
+import 'dashboard_page_controller.dart'; 
+import 'dashboard_page_model.dart';
 
 class LaunchLogic {
   void onDogSelected(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => GeneralPage()));
+  }
+
+  void goToDashboard(BuildContext context) {
+    DashboardModel model = DashboardModel();  
+    DashboardPageController controller = DashboardPageController(model);
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DashboardPageView(controller)));
   }
 }
 
@@ -24,7 +33,10 @@ class LaunchPage extends StatelessWidget {
               onPressed: () => logic.onDogSelected(context),
               child: Text('DOG'),
             ),
-            // More buttons can be added here in the future.
+            ElevatedButton(
+              onPressed: () => logic.goToDashboard(context),
+              child: Text('Go to Dashboard'),
+            ),
           ],
         ),
       ),
