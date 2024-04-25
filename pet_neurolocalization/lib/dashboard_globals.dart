@@ -597,7 +597,6 @@ int ambulatoryHemiparesisLeftVestibularAtaxiaBrainstem = 100;
 int ambulatoryHemiparesisLeftVestibularAtaxiaLeftCentralVestibular = 100;
 int ambulatoryHemiparesisLeftVestibularAtaxiaLeftCerebellumParadoxical = 100;
 
-
 int ambulatoryHemiparesisRightRightForebrain = 25;
 int ambulatoryHemiparesisRightLeftForebrain = 25;
 int ambulatoryHemiparesisRightBrainstem = 18;
@@ -613,8 +612,6 @@ int ambulatoryHemiparesisRightProprioceptiveAtaxiaRightCentralVestibular = 15;
 int ambulatoryHemiparesisRightProprioceptiveAtaxiaLeftCentralVestibular = 15;
 int ambulatoryHemiparesisRightProprioceptiveAtaxiaRightCerebellumParadoxical = 15;
 int ambulatoryHemiparesisRightProprioceptiveAtaxiaLeftCerebellumParadoxical = 15;
-
-
 
 int ambulatoryHemiparesisRightProprioceptiveAtaxiaC1C5Myelopathy = 35;
 int ambulatoryHemiparesisRightProprioceptiveAtaxiaC6T2Myelopathy = 15;
