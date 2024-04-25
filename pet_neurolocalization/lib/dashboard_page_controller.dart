@@ -27,7 +27,7 @@ class DashboardPageController {
       case 'fearfulForebrain':
         fearfulForebrain = parsedValue;
         break;
-      // Add cases for all the other variables in the dashboard_globals.dart
+      
       default:
         print('Key not found');
     }

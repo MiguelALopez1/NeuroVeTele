@@ -59,6 +59,38 @@ class _DashboardPageViewState extends State<DashboardPageView> {
     widget.controller.saveUpdates();
   }
 
+  Widget _buildTextFieldSection(String title, String label, TextEditingController controller) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          RichText(
+            text: TextSpan(
+              text: '$title: ',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
+              children: [
+                TextSpan(
+                  text: label,
+                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16, color: Colors.black),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 8),
+          TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Enter points',
+            ),
+            keyboardType: TextInputType.number,
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,42 +106,14 @@ class _DashboardPageViewState extends State<DashboardPageView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(
-              controller: _normalNormalExamController,
-              decoration: InputDecoration(labelText: 'Normal Normal Exam Points'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _normalRightForebrainController,
-              decoration: InputDecoration(labelText: 'Normal Right Forebrain Points'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _normalLeftForebrainController,
-              decoration: InputDecoration(labelText: 'Normal Left Forebrain Points'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _normalBehavioralController,
-              decoration: InputDecoration(labelText: 'Normal Behavioral Points'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _normalIntercranialController,
-              decoration: InputDecoration(labelText: 'Normal Intercranial Points'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _quietNormalExamController,
-              decoration: InputDecoration(labelText: 'Quiet Normal Exam Points'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _fearfulForebrainController,
-              decoration: InputDecoration(labelText: 'Fearful Forebrain Points'),
-              keyboardType: TextInputType.number,
-            ),
-            // Add more TextFields for other variables
+            _buildTextFieldSection('Normal', 'Normal Exam Points', _normalNormalExamController),
+            _buildTextFieldSection('Normal', 'Right Forebrain Points', _normalRightForebrainController),
+            _buildTextFieldSection('Normal', 'Left Forebrain Points', _normalLeftForebrainController),
+            _buildTextFieldSection('Normal', 'Behavioral Points', _normalBehavioralController),
+            _buildTextFieldSection('Normal', 'Intercranial Points', _normalIntercranialController),
+            _buildTextFieldSection('Quiet', 'Normal Exam Points', _quietNormalExamController),
+            _buildTextFieldSection('Fearful', 'Forebrain Points', _fearfulForebrainController),
+            // Add more _buildTextFieldSection calls for other variables
           ],
         ),
       ),
